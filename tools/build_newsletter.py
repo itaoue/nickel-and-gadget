@@ -101,7 +101,7 @@ def pick_sponsors(date):
                 break
             group = free[(day + i) % len(free)]
             pool = [b for b in active if b["group"] == group]
-            out[slot] = pool[(day // len(groups)) % len(pool)]
+            out[slot] = pool[day % len(pool)]  # a different creative each day
         used.add(out[slot]["group"])
     return out
 
