@@ -1,0 +1,114 @@
+{
+  "_comment": "Sponsor native ads for the daily email. sub1 / external_id prefix is always nag. {campaign} = issue date, {slot} = top|mid, {banner} = name. Each issue shows two different groups when it can; overrides pin {date: {slot: name}}.",
+  "sponsors": {
+    "enabled": true,
+    "label": "SPONSORED",
+    "slots": [
+      "top",
+      "mid"
+    ],
+    "overrides": {},
+    "banners": [
+      {
+        "name": "gifts-fidget-28",
+        "image": "/img/sponsors/photo-fidget-28.jpg",
+        "headline": "Best Christmas Gift: Here Are 28+ Of The Coolest Gifts For 2026",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "gifts-bakebot",
+        "image": "/img/sponsors/photo-bakebot.jpg",
+        "headline": "Best Christmas Gift: Here Are 23+ Of The Coolest Gifts For 2026",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "gifts-trailcam",
+        "image": "/img/sponsors/photo-trailcam.jpg",
+        "headline": "Best Christmas Gift: Here Are 23+ Of The Coolest Gifts For 2026",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "gifts-rug",
+        "image": "/img/sponsors/photo-rug.jpg",
+        "headline": "28+ Cool Gadgets That Make Great Christmas Gifts",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "gifts-gyro-orb",
+        "image": "/img/sponsors/photo-gyro-orb.jpg",
+        "headline": "Best Christmas Gift: Here Are 28+ Of The Coolest Gifts For 2026",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "gifts-flashlight-duo",
+        "image": "/img/sponsors/photo-flashlight-duo.jpg",
+        "headline": "Best Christmas Gift: Here Are 23+ Of The Coolest Gifts For 2026",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "gifts-brass-fidget",
+        "image": "/img/sponsors/photo-brass-fidget.jpg",
+        "headline": "28+ Cool Gadgets That Make Great Christmas Gifts",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "gifts-orrery-tool",
+        "image": "/img/sponsors/photo-orrery-tool.jpg",
+        "headline": "28+ Cool Gadgets That Make Great Christmas Gifts",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "gifts-gnome-rug",
+        "image": "/img/sponsors/photo-gnome-rug.jpg",
+        "headline": "Best Christmas Gift: Here Are 28+ Of The Coolest Gifts For 2026",
+        "advertiser": "Gadgets Laboratory",
+        "cta": "Learn More",
+        "url": "https://united.seniordiscount.us/click.php?key=nl1nap90yl67pzghn0dn&external_id=nag_{campaign}_{slot}_{banner}",
+        "group": "gifts",
+        "active": true
+      },
+      {
+        "name": "advent-brick",
+        "image": "/img/sponsors/photo-brick-advent.jpg",
+        "headline": "A Christmas Advent Calendar You Build: 24 Mini Brick Ornaments, One Every Evening",
+        "advertiser": "GadgetsWatcher",
+        "cta": "Learn More",
+        "url": "https://www.g8mv2trk.com/2P9J9R/2Q2DNTG/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "advent",
+        "active": true
+      }
+    ]
+  }
+}

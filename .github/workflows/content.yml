@@ -1,0 +1,95 @@
+name: Daily articles and newsletter
+# Writes the day's gadget guides with Claude (tools/write_articles.py), commits them (the push redeploys Railway), then builds
+# tomorrow's daily email and creates it as a BigMailer draft with no recipients (lists are picked in BigMailer).
+# GitHub's cron can be delayed or skipped, so it fires at several times; --daily / --skip-if-exists make later runs no-ops.
+on:
+  schedule:
+    - cron: "20 16 * * *"   # 09:20 Pacific (daylight time)
+    - cron: "20 18 * * *"
+    - cron: "20 20 * * *"
+    - cron: "20 23 * * *"
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Articles to write now (ignores the daily target; 0 = none)"
+        default: "1"
+      category:
+        description: "Optional: force one category (Health & Safety, Smart Home, Phones & Tablets, Hearing & Vision, Home & Kitchen, Gift Ideas)"
+        default: ""
+      newsletter:
+        description: "Newsletter: auto (build once today's articles are done), now (build tomorrow's issue now), off"
+        default: "auto"
+concurrency:
+  group: daily-content
+  cancel-in-progress: false
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+      BIGMAILER_API_KEY: ${{ secrets.BIGMAILER_API_KEY }}
+      NAG_NEWSLETTER_LIST_IDS: ${{ vars.NAG_NEWSLETTER_LIST_IDS || '' }}
+      DAILY_ARTICLES: ${{ vars.DAILY_ARTICLES || '3' }}
+      STORY_EFFORT: ${{ vars.STORY_EFFORT || 'medium' }}
+      STORY_MODEL: ${{ vars.STORY_MODEL || 'claude-opus-5-5' }}
+      RESEARCH_MODEL: ${{ vars.RESEARCH_MODEL || 'claude-sonnet-5-5' }}
+      EDITOR_MODEL: ${{ vars.EDITOR_MODEL || 'claude-sonnet-5-5' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-content.txt
+      - run: pip install -r requirements-content.txt
+      - name: Write articles
+        env:
+          COUNT: ${{ github.event.inputs.count }}
+          CATEGORY: ${{ github.event.inputs.category }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            [ "${COUNT:-1}" = "0" ] && { echo "no articles requested"; exit 0; }
+            python tools/write_articles.py --count "${COUNT:-1}" ${CATEGORY:+--category "$CATEGORY"}
+          else
+            python tools/write_articles.py --daily "$DAILY_ARTICLES"
+          fi
+      - name: Commit and push articles
+        run: |
+          git add client/src/content/articles client/public/uploads
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git config user.name "nag-bot"
+          git config user.email "nag-bot@users.noreply.github.com"
+          git commit -m "Guides: $(TZ=America/Los_Angeles date +%F)"
+          for i in 1 2 3; do git pull --rebase -q && git push && exit 0; sleep 5; done
+          exit 1
+      - name: Build the daily newsletter
+        id: nl
+        env:
+          MODE: ${{ github.event.inputs.newsletter || 'auto' }}
+        run: |
+          set -o pipefail
+          if [ "$MODE" = "off" ]; then echo "newsletter off"; exit 0; fi
+          ARGS=""   # now = (re)build tomorrow's issue regardless, e.g. to retry
+          [ "$MODE" = "auto" ] && ARGS="--skip-if-exists --min-today $DAILY_ARTICLES"
+          git pull --rebase -q
+          python tools/build_newsletter.py --auto $ARGS | tee nl.log
+          if ls dist/newsletters/*.json >/dev/null 2>&1; then
+            echo "issue=$(ls -t dist/newsletters/*.json | head -1 | xargs -n1 basename | sed 's/.json$//')" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish the issue and its "View online" copy
+        if: steps.nl.outputs.issue != ''
+        run: |
+          git add content/newsletter client/public/newsletters
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "nag-bot"
+          git config user.email "nag-bot@users.noreply.github.com"
+          git commit -m "Newsletter ${{ steps.nl.outputs.issue }}"
+          for i in 1 2 3; do git pull --rebase -q && git push && exit 0; sleep 5; done
+          exit 1
+      - name: Create the BigMailer draft
+        if: steps.nl.outputs.issue != '' && env.BIGMAILER_API_KEY != ''
+        run: python tools/push_newsletter.py "${{ steps.nl.outputs.issue }}"

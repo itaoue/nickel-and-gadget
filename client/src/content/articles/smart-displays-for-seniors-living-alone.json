@@ -1,0 +1,159 @@
+{
+  "id": "p-smart-displays-for-seniors-living-alone",
+  "slug": "smart-displays-for-seniors-living-alone",
+  "category": "Smart Home",
+  "title": "Smart Displays for Older Adults Living Alone: Reminders, Video Calls and Real Limits",
+  "subtitle": "How an Echo Show or Nest Hub can help with reminders and family calls, what it cannot do in an emergency, and the privacy settings to check.",
+  "excerpt": "A smart display can remind you about pills, put the grandkids on screen and answer by voice. Here is what the Echo Show and Nest Hub really do, what they cost and where they fall short.",
+  "author": "Nickel And Gadget Editors",
+  "authorRole": "Editorial desk",
+  "date": "October 27, 2026",
+  "publishedAt": "2026-10-27T16:30:00+00:00",
+  "readTime": "4 min read",
+  "image": "/uploads/2026/10/smart-displays-for-seniors-living-alone.jpg",
+  "tags": [
+    "smart displays",
+    "Echo Show",
+    "Nest Hub",
+    "aging in place",
+    "privacy"
+  ],
+  "sections": [
+    {
+      "type": "paragraph",
+      "content": "Living alone has its comforts, but the quiet can stretch out, and small things are easy to forget: a pill at noon, a doctor visit on Thursday, a call you meant to return. A smart display, which is a smart speaker with a screen, can help with some of that by voice, without hunting for a phone."
+    },
+    {
+      "type": "paragraph",
+      "content": "These devices are helpers, not guardians. Below we explain what they do well, where they fall short and which privacy settings deserve a few minutes of your time."
+    },
+    {
+      "type": "heading",
+      "content": "What a smart display can do day to day"
+    },
+    {
+      "type": "subheading",
+      "content": "Reminders and routines"
+    },
+    {
+      "type": "paragraph",
+      "content": "Amazon says Alexa handles alarms, reminders, to-do lists and routines, and Google says its Nest Hub can show your calendar and create reminders and to-dos. You ask out loud, and the reminder is spoken back to you at the set time."
+    },
+    {
+      "type": "paragraph",
+      "content": "On the Nest Hub, Google also offers a Sunrise Alarm that slowly brightens the screen and raises the alarm volume, which can be gentler than a sudden buzz. Quick Gestures let you snooze an alarm or stop a timer with a wave of your hand, which helps when your hands are full or wet."
+    },
+    {
+      "type": "subheading",
+      "content": "Video calls and \"Drop In\""
+    },
+    {
+      "type": "paragraph",
+      "content": "Amazon's Echo Show models have a camera for video calls. Amazon's Drop In feature goes a step further: a family member you approve can connect to your Echo without you answering. You turn it on per contact in the Alexa app, under More, Communicate, Contacts, then Allow Drop In. Amazon notes that the setting also lets that contact's household members connect, so grant it carefully."
+    },
+    {
+      "type": "paragraph",
+      "content": "Google's Nest Hub (2nd gen) can make Google Meet video calls, but Google's own support page says it can receive video and cannot send it, because it has no camera. Your family will hear you but not see you. Some people find that a comfort in the bedroom; others want the face-to-face visit."
+    },
+    {
+      "type": "subheading",
+      "content": "Getting help in an emergency"
+    },
+    {
+      "type": "paragraph",
+      "content": "Here plain talk matters. By default, Alexa does not call 911. Amazon sells a paid service called Alexa Emergency Assist: you say \"Alexa, call for help\" and reach a 24/7 Urgent Response agent who can request police, fire or an ambulance. It can also notify up to 25 emergency contacts. When Reviewed covered it in 2024, it cost $5.99 a month or $59 a year for Prime members; check the current price."
+    },
+    {
+      "type": "paragraph",
+      "content": "Amazon is clear about its limits. Someone must speak with the agent before help is sent, and the service will not work during a power or internet outage. It is not a medical alert system, and nothing in Amazon's description says it detects falls. The Google page we read for the Nest Hub does not describe an emergency calling service at all."
+    },
+    {
+      "type": "heading",
+      "content": "Privacy settings worth knowing"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Find the mute switch. The Nest Hub has a microphone switch, and the newest Echo Show 8 has a button that mutes the microphones and electronically turns off the camera.",
+        "Know that the 2025 Echo Show 8 dropped the sliding camera cover its older model had, according to PCWorld. If you want a camera nowhere near your bed, consider the camera-free Nest Hub there.",
+        "Review Drop In permissions every few months, and turn them off for anyone who no longer needs them.",
+        "Google says you can clear your Assistant history whenever you want; it is worth doing now and then.",
+        "Ask a family member to help with setup, and write down the account email and password in a safe place at home."
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "Smart displays worth a look"
+    },
+    {
+      "type": "products"
+    },
+    {
+      "type": "callout",
+      "label": "Good to Know",
+      "content": "Amazon's newer assistant, Alexa+, is included for Prime members and costs $19.99 a month without Prime, according to PCWorld. Google says some Nest Hub features, like alerts when it hears glass breaking or a smoke alarm, need a Google Home Premium subscription. Ask about these fees before you buy."
+    },
+    {
+      "type": "heading",
+      "content": "The bottom line"
+    },
+    {
+      "type": "paragraph",
+      "content": "A smart display can be a friendly voice for reminders and an easy way to see family. Pick the Echo Show if face-to-face calls and Drop In matter most, or the Nest Hub if you prefer no camera. Either way, keep a phone or a true medical alert button within reach for emergencies."
+    }
+  ],
+  "products": [
+    {
+      "name": "Echo Show 8 (2025)",
+      "maker": "Amazon",
+      "price": "About $179.99 (list price, October 2026)",
+      "url": "https://www.aboutamazon.com/news/devices/amazon-new-echo-devices-alexa-plus",
+      "blurb": "An 8.7-inch screen with a 13-megapixel camera for video calls and Drop In, plus a button that turns off the mics and camera. Reviewers note it no longer has a sliding camera cover."
+    },
+    {
+      "name": "Echo Show 11",
+      "maker": "Amazon",
+      "price": "About $219.99 (list price, October 2026)",
+      "url": "https://www.aboutamazon.com/news/devices/amazon-new-echo-devices-alexa-plus",
+      "blurb": "The same features as the Echo Show 8 on a larger 11-inch Full HD screen. Worth considering if a bigger screen is easier on your eyes."
+    },
+    {
+      "name": "Nest Hub (2nd gen)",
+      "maker": "Google",
+      "price": "About $99.99 (list price at the Google Store, October 2026); some colors may be out of stock",
+      "url": "https://store.google.com/us/product/nest_hub_2nd_gen?hl=en-US",
+      "blurb": "A camera-free display for the bedroom or kitchen with reminders, a Sunrise Alarm and a microphone switch. It can join video calls but cannot send video."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Amazon: Amazon's new Echo devices built for Alexa+",
+      "url": "https://www.aboutamazon.com/news/devices/amazon-new-echo-devices-alexa-plus"
+    },
+    {
+      "label": "Engadget: Amazon's Echo Show 8 and 11 are down to new all-time lows",
+      "url": "https://www.engadget.com/deals/amazons-echo-show-8-and-11-are-down-to-new-all-time-lows-150021328.html"
+    },
+    {
+      "label": "PCWorld: Amazon Echo Show 8 review",
+      "url": "https://www.pcworld.com/article/3048427/amazon-echo-show-8-review-2.html"
+    },
+    {
+      "label": "Google Store: Nest Hub (2nd Gen)",
+      "url": "https://store.google.com/us/product/nest_hub_2nd_gen?hl=en-US"
+    },
+    {
+      "label": "Google Nest Help: Make a call on your Google smart speaker or display",
+      "url": "https://support.google.com/googlehome/answer/14114319?hl=en"
+    },
+    {
+      "label": "Reviewed: Alexa Emergency Assist review",
+      "url": "https://reviewed.com/accessibility/content/alexa-emergency-assist-review"
+    },
+    {
+      "label": "Amazon: New ways to manage your medications at home using Alexa",
+      "url": "https://www.aboutamazon.com/news/devices/new-ways-to-manage-your-medications-at-home-using-alexa"
+    }
+  ],
+  "relatedIds": []
+}
