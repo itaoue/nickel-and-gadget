@@ -2,7 +2,9 @@ import express from "express";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import { registerAdmin } from "./admin";
 import { registerPolls } from "./polls";
+import { logSignup } from "./signups";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,6 +18,7 @@ async function startServer() {
     process.env.NODE_ENV === "production"
       ? path.resolve(__dirname, "public")
       : path.resolve(__dirname, "..", "dist", "public");
+  const root = path.resolve(__dirname, ".."); // repo root (dist/.. in production, server/.. in dev): the admin reads guides and issues from it
 
   app.use(express.json({ limit: "10kb" }));
 
@@ -41,6 +44,12 @@ async function startServer() {
       console.error("subscribe: BIGMAILER_API_KEY is not set; signup not saved");
       return res.status(503).json({ ok: false, error: "Signups are temporarily unavailable. Please try again later." });
     }
+    let source = "";
+    try {
+      source = new URL(String(req.headers.referer ?? "")).pathname;
+    } catch {
+      // no or bad referer
+    }
     try {
       const r = await fetch(`https://api.bigmailer.io/v1/brands/${BM_BRAND}/contacts/upsert`, {
         method: "POST",
@@ -50,16 +59,20 @@ async function startServer() {
       });
       if (!r.ok) {
         console.error("subscribe: BigMailer", r.status, (await r.text()).slice(0, 300));
+        await logSignup(email, "error", source);
         return res.status(502).json({ ok: false, error: "Something went wrong. Please try again." });
       }
+      await logSignup(email, "ok", source);
       return res.json({ ok: true });
     } catch (err) {
       console.error("subscribe: BigMailer request failed", err);
+      await logSignup(email, "error", source);
       return res.status(502).json({ ok: false, error: "Network error. Please try again." });
     }
   });
 
-  registerPolls(app, staticPath);
+  const polls = registerPolls(app, staticPath);
+  registerAdmin(app, staticPath, root, polls);
 
   app.use(express.static(staticPath));
 

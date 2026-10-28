@@ -24,11 +24,18 @@ BigMailer draft "NAG Daily MM/DD | subject" in the Nickel And Gadget brand with 
   `/poll/<date>`. `server/polls.ts` stores votes in Postgres table `nag_poll_votes` via `DATABASE_URL` (without it votes are
   kept in memory and lost on every deploy; `/api/health` shows which store is in use).
 
+## Admin
+
+`/admin` (server-rendered, `server/admin.ts`), signed in with `ADMIN_PASSWORD` (Railway variable; without it the admin is
+off). Read-only: dashboard (counts, health, recent BigMailer sends with open / click rates), newsletters (subject, lead,
+poll, sponsors and BigMailer status per issue), poll results, guides with products and prices, the site's signup log
+(Postgres table `nag_signups`, CSV export) and sponsor creatives. Guides, issues and sponsors are still edited in git.
+
 ## Setup
 
 - GitHub secrets: `ANTHROPIC_API_KEY`, `XAI_API_KEY`, `BIGMAILER_API_KEY`. Optional variables: `NAG_NEWSLETTER_LIST_IDS`,
   `DAILY_ARTICLES`, model overrides.
-- Railway variables: `DATABASE_URL` (Postgres for poll votes), `BIGMAILER_API_KEY` (site signups go to the brand's "Website Signups" list), optional
+- Railway variables: `DATABASE_URL` (Postgres for poll votes and the signup log), `ADMIN_PASSWORD` (admin sign-in), `BIGMAILER_API_KEY` (site signups go to the brand's "Website Signups" list), optional
   `VITE_AMAZON_TAG` (adds an Amazon Associates tag to amazon.com product links at build time).
 - Local: `pnpm install && pnpm dev` (node lives in `~/.local/node/bin`).
 

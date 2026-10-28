@@ -17,7 +17,8 @@ import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import type { Express, Request } from "express";
-import pg from "pg";
+import type pg from "pg";
+import { pool as dbPool } from "./db";
 
 const CAMPAIGN_RE = /^\d{4}-\d{2}-\d{2}(-[a-z]+)?$/; // NAG issues are plain dates, e.g. 2026-10-28
 const CONTACT_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
@@ -36,7 +37,7 @@ interface Vote {
   contact: string;
 }
 
-interface Store {
+export interface Store {
   kind: "postgres" | "memory";
   vote(v: Vote): Promise<void>;
   counts(campaign: string): Promise<Map<number, number>>;
@@ -66,8 +67,7 @@ function memoryStore(): Store {
   };
 }
 
-function pgStore(url: string): Store {
-  const pool = new pg.Pool({ connectionString: url, max: 5, ssl: /sslmode=require/.test(url) ? { rejectUnauthorized: false } : undefined });
+function pgStore(pool: pg.Pool): Store {
   const ready = pool.query(`
     CREATE TABLE IF NOT EXISTS nag_poll_votes (
       id SERIAL PRIMARY KEY,
@@ -123,9 +123,9 @@ function voterId(req: Request): string {
   return crypto.createHash("sha256").update(`${ip}|${req.headers["user-agent"] ?? ""}`).digest("hex").slice(0, 40);
 }
 
-export function registerPolls(app: Express, staticPath: string) {
-  const store = process.env.DATABASE_URL ? pgStore(process.env.DATABASE_URL) : memoryStore();
-  if (!process.env.DATABASE_URL) console.warn("polls: DATABASE_URL is not set; votes are kept in memory and lost on restart");
+export function registerPolls(app: Express, staticPath: string): Store {
+  const store = dbPool ? pgStore(dbPool) : memoryStore();
+  if (!dbPool) console.warn("polls: DATABASE_URL is not set; votes are kept in memory and lost on restart");
 
   const loadPoll = (campaign: string): Poll | null => {
     if (!CAMPAIGN_RE.test(campaign)) return null;
@@ -192,4 +192,6 @@ export function registerPolls(app: Express, staticPath: string) {
       }),
     });
   });
+
+  return store;
 }
