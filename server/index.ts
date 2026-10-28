@@ -2,6 +2,7 @@ import express from "express";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import { registerPolls } from "./polls";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -57,6 +58,8 @@ async function startServer() {
       return res.status(502).json({ ok: false, error: "Network error. Please try again." });
     }
   });
+
+  registerPolls(app, staticPath);
 
   app.use(express.static(staticPath));
 

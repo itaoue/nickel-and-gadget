@@ -19,12 +19,16 @@ Express server (`server/index.ts`), deployed on Railway from `main`. Same frame 
 two sponsor native ads from `content/newsletter/config.json`, more guides); `tools/push_newsletter.py` creates a
 BigMailer draft "NAG Daily MM/DD | subject" in the Nickel And Gadget brand with no lists unless
 `NAG_NEWSLETTER_LIST_IDS` is set. Sponsor links always carry `nag` as sub1 / external_id prefix.
+- Every issue carries a reader poll about the lead guide (issue JSON `poll`, Claude-written with --auto). The question is
+  written to `client/public/polls/<date>.json`; email buttons link `/poll/<date>/vote/<n>?c=*|_ID|*`, results show at
+  `/poll/<date>`. `server/polls.ts` stores votes in Postgres table `nag_poll_votes` via `DATABASE_URL` (without it votes are
+  kept in memory and lost on every deploy; `/api/health` shows which store is in use).
 
 ## Setup
 
 - GitHub secrets: `ANTHROPIC_API_KEY`, `XAI_API_KEY`, `BIGMAILER_API_KEY`. Optional variables: `NAG_NEWSLETTER_LIST_IDS`,
   `DAILY_ARTICLES`, model overrides.
-- Railway variables: `BIGMAILER_API_KEY` (site signups go to the brand's "Website Signups" list), optional
+- Railway variables: `DATABASE_URL` (Postgres for poll votes), `BIGMAILER_API_KEY` (site signups go to the brand's "Website Signups" list), optional
   `VITE_AMAZON_TAG` (adds an Amazon Associates tag to amazon.com product links at build time).
 - Local: `pnpm install && pnpm dev` (node lives in `~/.local/node/bin`).
 

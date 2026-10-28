@@ -8,5 +8,6 @@
     {"slug": "automatic-pill-dispensers-medication-reminders-guide", "teaser": "From a $70 alarm pill box to locked dispensers"},
     {"slug": "digital-photo-frames-for-grandparents-gift-guide", "teaser": "The gift that gets new family photos every week"},
     {"slug": "kitchen-helpers-for-stiff-arthritic-hands", "teaser": "A $20 push-button jar opener and three more helpers"}
-  ]
+  ],
+  "poll": {"question": "When you watch TV, how often do you miss what people are saying?", "options": ["Almost never", "Now and then", "Often", "I use captions"]}
 }

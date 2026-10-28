@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import ArticleDetail from "./pages/ArticleDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DoNotSell from "./pages/DoNotSell";
+import PollPage from "./pages/Poll";
 import Terms from "./pages/Terms";
 
 
@@ -26,6 +27,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/privacy-policy"} component={PrivacyPolicy} />
       <Route path={"/terms"} component={Terms} />
+      <Route path={"/poll/:campaign"} component={PollPage} />
       <Route path={"/do-not-sell"} component={DoNotSell} />
       {/* Old Wix page URLs, kept so links in past emails still land */}
       <Route path={"/about-us"}><Redirect to="/about" replace /></Route>

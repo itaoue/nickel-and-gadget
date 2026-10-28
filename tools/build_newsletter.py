@@ -15,11 +15,14 @@ second sponsored ad; a grey editor box; a DISCLOSURE block; and the postal foote
 The issue file names the stories and the copy that is not on the site:
     {"date": "2026-10-28", "subject": "...", "preheader": "...",
      "featured": {"slug": "...", "teaser": "..."},
-     "recent": [{"slug": "...", "teaser": "..."}, ...]}
+     "recent": [{"slug": "...", "teaser": "..."}, ...],
+     "poll": {"question": "...", "options": ["...", "..."]}}          # optional: TODAY'S POLL after the guide
+A poll is also written to client/public/polls/<date>.json, which the site's server reads to count votes
+(/poll/<date>/vote/<n>?c=*|_ID|*) and to show results at /poll/<date>.
 Headlines and images come from the site's articles (seed file + daily pipeline files). With --auto the
 issue file is written for you: the newest articles fill FEATURED and RECENT, and Claude (EDITOR_MODEL,
-when ANTHROPIC_API_KEY is set) picks the lead and writes the subject, preheader and teaser lines;
-without a key the article titles and subtitles are used.
+when ANTHROPIC_API_KEY is set) picks the lead and writes the subject, preheader, teaser lines and a poll about
+the lead; without a key the article titles and subtitles and a generic poll are used.
 
 Output: dist/newsletters/<date>.html, .txt and .json (for tools/push_newsletter.py), and a copy of the HTML in client/public/newsletters/
 so the "View online" link works once committed and deployed.
@@ -43,6 +46,8 @@ ISSUES = ROOT / "content" / "newsletter"
 PT = zoneinfo.ZoneInfo("America/Los_Angeles")
 OUT = ROOT / "dist" / "newsletters"
 STATIC = ROOT / "client" / "public" / "newsletters"
+POLLS = ROOT / "client" / "public" / "polls"   # served at /polls/<date>.json; the site's server reads the question from there
+CONTACT_TAG = "*|_ID|*"   # BigMailer fills in the contact id, so each subscriber has one vote (last click wins)
 
 BLUE, INK, GREY, LABEL, BOX, LINK, COPPER = "#1f6fb2", "#2a2a2a", "#656565", "#9fa2a7", "#efefef", "#0b57d0", "#c06b1c"
 CONFIG = json.loads((ISSUES / "config.json").read_text())
@@ -127,6 +132,29 @@ def label(text):
 <tr><td height="15" style="font-size:15px;line-height:15px;">&nbsp;</td></tr>"""
 
 
+def vote_url(d, i):
+    return f"{SITE}/poll/{d}/vote/{i}?c={CONTACT_TAG}&utm_source=newsletter&utm_medium=email&utm_campaign=nag-daily-{d}&utm_content=poll"
+
+
+def poll_block(issue):
+    poll = issue.get("poll")
+    if not poll:
+        return ""
+    d = issue["date"]
+    buttons = "".join(
+        f"""<tr><td style="padding:5px 10px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+<td align="center" style="border:2px solid {BLUE};border-radius:6px;padding:11px 14px;">
+<a href="{esc(vote_url(d, i))}" target="_blank" style="display:block;font-family:{FONT};font-size:17px;font-weight:600;color:{BLUE};text-decoration:none;">{esc(o)}</a>
+</td></tr></table></td></tr>"""
+        for i, o in enumerate(poll["options"]))
+    return f"""{label("TODAY&#8217;S POLL")}
+<tr><td style="border-left:3px solid {BLUE};font-family:{FONT};font-size:20px;line-height:27px;font-weight:600;color:{INK};padding-left:10px;">{esc(poll['question'])}</td></tr>
+<tr><td height="8" style="font-size:8px;line-height:8px;">&nbsp;</td></tr>
+{buttons}
+<tr><td style="padding:8px 10px 0;font-family:{FONT};font-size:13px;color:{GREY};">Tap an answer to vote. <a href="{SITE}/poll/{d}" target="_blank" style="color:{LINK};">See the results so far&nbsp;&gt;&gt;</a></td></tr>
+<tr><td height="28" style="font-size:28px;line-height:28px;">&nbsp;</td></tr>"""
+
+
 def build(issue):
     d = issue["date"]
     feat = ARTICLES[issue["featured"]["slug"]]
@@ -162,6 +190,7 @@ def build(issue):
 {products_box(feat, furl)}
 <tr><td align="center" style="font-family:{FONT};padding:16px 7px 0;"><a href="{esc(furl)}" target="_blank" style="font-size:24px;font-weight:700;color:{LINK};text-decoration:none;">See&nbsp;the&nbsp;Guide&nbsp;&gt;&gt;</a></td></tr>
 <tr><td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td></tr>
+{poll_block(issue)}
 {top}
 {label("MORE GUIDES")}
 {rows}
@@ -185,6 +214,8 @@ Nickel And Gadget<br>{ADDRESS}<br>
     text = [issue["preheader"], "", "TODAY'S GADGET GUIDE", feat["title"], issue["featured"]["teaser"] + " >>"]
     text += [f"- {p['name']}: {p['price']}" for p in feat.get("products", [])[:4]]
     text += [furl, ""]
+    if issue.get("poll"):
+        text += ["TODAY'S POLL: " + issue["poll"]["question"], *(f"- {o}: {vote_url(d, i)}" for i, o in enumerate(issue["poll"]["options"])), ""]
     if "top" in ads:
         text += ["SPONSORED: " + ads["top"]["headline"], sponsor_url(ads["top"], d, "top"), ""]
     text += ["MORE GUIDES"]
@@ -258,6 +289,40 @@ def write_copy(picks):
         return fallback
 
 
+POLL_RULES = """Write ONE reader-poll question for the Nickel And Gadget daily email (senior-friendly gadgets, readers aged 60 to 85
+and the adult children who shop for them), about the specific guide below.
+- Ask about the reader's own experience, habit, plan or opinion on the topic of THIS guide (e.g. 'How do you know who's at your door
+  before you open it?', 'Do you use captions when you watch TV?', 'What would you pay for a phone that's easier to use?'). Specific
+  to the guide, never generic ('Do you like gadgets?').
+- Under 16 words, plain and friendly. Never ask about diagnoses, medications, money they have, or anything a reader would find too
+  personal; never imply a product recommendation.
+- 3 or 4 answer options, each under 6 words, covering the realistic range; include a 'Not sure' or 'Don't use one' style option
+  when it fits.
+Return JSON with question and options."""
+POLL_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["question", "options"],
+               "properties": {"question": {"type": "string"}, "options": {"type": "array", "items": {"type": "string"}}}}
+
+
+def poll_question(lead):
+    """Claude writes the question about the lead guide; without a key, a simple question about its topic."""
+    fallback = {"question": "Would a gadget like the ones in today's guide make your day easier?", "options": ["Yes, probably", "Maybe", "No", "I already have one"]}
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        return fallback
+    try:
+        import anthropic
+        msg = anthropic.Anthropic(max_retries=3).messages.create(
+            model=os.environ.get("EDITOR_MODEL", "claude-sonnet-5-5"), max_tokens=300, system=POLL_RULES,
+            output_config={"effort": "low", "format": {"type": "json_schema", "schema": POLL_SCHEMA}},
+            messages=[{"role": "user", "content": f"Title: {lead['title']}\nSummary: {lead['excerpt']}\nText: {plain(lead, 1500)}"}])
+        data = json.loads(next(b.text for b in msg.content if b.type == "text"))
+        opts = [o.strip()[:60] for o in data.get("options", []) if o.strip()][:4]
+        if data.get("question") and len(opts) >= 2:
+            return {"question": data["question"].strip()[:200], "options": opts}
+    except Exception as exc:  # noqa: BLE001 - never block the issue on the poll
+        print(f"poll question generation failed ({exc}); using the fallback question")
+    return fallback
+
+
 def auto_issue(date, recent_count=4):
     """Issue file for `date` from the newest articles, skipping every story the previous issue carried (topped up if short)."""
     newest = sorted(ALL, key=published, reverse=True)
@@ -272,7 +337,8 @@ def auto_issue(date, recent_count=4):
     rest = [a for a in picks if a is not lead]
     return {"date": date, "subject": copy["subject"], "preheader": copy["preheader"],
             "featured": {"slug": lead["slug"], "teaser": copy["teasers"][lead["slug"]]},
-            "recent": [{"slug": a["slug"], "teaser": copy["teasers"][a["slug"]]} for a in rest]}
+            "recent": [{"slug": a["slug"], "teaser": copy["teasers"][a["slug"]]} for a in rest],
+            "poll": poll_question(lead)}
 
 
 def main():
@@ -309,7 +375,11 @@ def main():
     (OUT / f"{d}.html").write_text(page)
     (OUT / f"{d}.txt").write_text(text)
     (OUT / f"{d}.json").write_text(json.dumps(issue, ensure_ascii=False, indent=1))
-    (STATIC / f"{d}.html").write_text(page.replace("*|UNSUB|*", f"{SITE}/"))
+    (STATIC / f"{d}.html").write_text(page.replace("*|UNSUB|*", f"{SITE}/").replace(f"c={CONTACT_TAG}&amp;", ""))
+    if issue.get("poll"):
+        POLLS.mkdir(parents=True, exist_ok=True)
+        (POLLS / f"{d}.json").write_text(json.dumps({"campaign": d, **issue["poll"], "lead": issue["featured"]["slug"]}, ensure_ascii=False, indent=1) + "\n")
+        print(f"  poll: {issue['poll']['question']} ({' / '.join(issue['poll']['options'])})")
     print(f"{d}: subject '{issue['subject']}' | preheader '{issue['preheader']}'")
     print(f"  featured: {ARTICLES[issue['featured']['slug']]['title']} -- {issue['featured']['teaser']}")
     for r in issue["recent"]:

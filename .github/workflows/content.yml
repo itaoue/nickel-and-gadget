@@ -83,7 +83,7 @@ jobs:
       - name: Publish the issue and its "View online" copy
         if: steps.nl.outputs.issue != ''
         run: |
-          git add content/newsletter client/public/newsletters
+          git add content/newsletter client/public/newsletters client/public/polls
           if git diff --cached --quiet; then exit 0; fi
           git config user.name "nag-bot"
           git config user.email "nag-bot@users.noreply.github.com"
