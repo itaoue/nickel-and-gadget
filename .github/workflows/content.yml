@@ -47,6 +47,7 @@ jobs:
           cache-dependency-path: requirements-content.txt
       - run: pip install -r requirements-content.txt
       - name: Write articles
+        continue-on-error: true   # a bad day for the writer must not stop tomorrow's newsletter
         env:
           COUNT: ${{ github.event.inputs.count }}
           CATEGORY: ${{ github.event.inputs.category }}
@@ -75,6 +76,8 @@ jobs:
           if [ "$MODE" = "off" ]; then echo "newsletter off"; exit 0; fi
           ARGS=""   # now = (re)build tomorrow's issue regardless, e.g. to retry
           [ "$MODE" = "auto" ] && ARGS="--skip-if-exists --min-today $DAILY_ARTICLES"
+          # the last runs of the day (from 4 pm Pacific) build the issue even if fewer guides were written
+          [ "$MODE" = "auto" ] && [ "$(TZ=America/Los_Angeles date +%H)" -ge 16 ] && ARGS="--skip-if-exists"
           git pull --rebase -q
           python tools/build_newsletter.py --auto $ARGS | tee nl.log
           if ls dist/newsletters/*.json >/dev/null 2>&1; then

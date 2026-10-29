@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-29",
+  "subject": "Robocalls on the home phone? Two fixes with no apps to learn",
+  "preheader": "A plug-in call blocker or a cordless phone that screens callers, and what each can't stop",
+  "featured": {"slug": "landline-call-blockers-scam-blocking-cordless-phones", "teaser": "Quiet the landline for Mom and Dad, from $53"},
+  "recent": [
+    {"slug": "medical-alert-systems-fall-detection-buying-guide", "teaser": "What fall detection can and can't catch"},
+    {"slug": "easy-to-use-phones-for-seniors-guide", "teaser": "Big buttons, simple screens and the plans behind them"},
+    {"slug": "smart-displays-for-seniors-living-alone", "teaser": "Video calls and reminders without touching a phone"},
+    {"slug": "over-the-counter-hearing-aids-what-to-know", "teaser": "What changed when hearing aids went over the counter"}
+  ],
+  "poll": {"question": "How many unwanted calls does your home phone get in a typical week?", "options": ["None or almost none", "A few", "More than I can count", "We don't have a landline"]}
+}

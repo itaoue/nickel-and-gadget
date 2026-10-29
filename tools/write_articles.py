@@ -253,14 +253,17 @@ def json_out(msg, what):
 
 def research(client, category, titles, today, avoid=()):
     tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 6},
-             {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": 6, "max_content_tokens": 8000}]
+             {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": 10, "max_content_tokens": 8000}]
     recent = "\n".join(f"- {t}" for t in [*titles[-60:], *avoid])
     ask = (f"Today is {today}. Choose ONE gadget topic in the category {category.upper()} ({SCOPE[category]}) for a Nickel And Gadget "
            "buying guide, and research it.\n\n"
            f"{AUDIENCE}\n\n"
            f"It must be clearly different from these articles already on the site:\n{recent}\n\n"
            "Research: find 2 to 4 real products that fit, currently sold in the US by the maker or a major retailer. For each one, FETCH its "
-           "product page (maker's site preferred; a major retailer is fine) and record what the page states. Then read one or two credible "
+           "product page and record what the page states. Use the maker's own store page whenever there is one, or a specialty retailer "
+           "(Best Buy, Lowe's, Home Depot, MaxiAids, Vive Health and the like): Amazon, Walmart and Target pages usually refuse to load "
+           "for your fetch tool, so do not rely on them. If a page does not load or shows no price, choose another product rather than "
+           "guessing. Then read one or two credible "
            "independent sources (Consumer Reports, Wirecutter, AARP, reputable tech or news outlets, or an official page such as FDA/FTC/FCC) "
            "for context on what to look for and the category's limits. Skip blogs, Substack, social posts, forums, and listicles that only "
            "repeat Amazon descriptions. Do not write the article yet. Return compact plain-text notes, under 900 words:\n"
@@ -366,12 +369,18 @@ def revise(client, art, verdict, notes):
     return out
 
 
+def bare_url(url):
+    """URL without scheme, www., query, fragment or trailing slash, for comparing links the model copied from its notes."""
+    return re.sub(r"^https?://(www\.)?", "", url.strip().lower()).split("#")[0].split("?")[0].rstrip("/")
+
+
 def check_products(art, notes):
     """Drop products whose URL is not in the notes (the model must not make up links); the guide needs at least two left."""
+    seen = {bare_url(u) for u in re.findall(r"https?://[^\s)\]>\"',]+", notes)}
     kept = []
     for p in art.get("products", []):
         url = p.get("url", "").strip()
-        if url.startswith("https://") and url.rstrip("/") in notes:
+        if url.startswith("https://") and bare_url(url) in seen:
             kept.append(p)
         else:
             print(f"  dropped product with a link not in the notes: {p.get('name')} {url}")
@@ -469,7 +478,10 @@ def main():
     titles = [r[0] for r in rows]
     taken = {r[1] for r in rows}
     written, failed = [], 0
-    for cat in cats:
+    spare = [c for c in pick_categories(len(CATEGORIES), rows) if c not in cats]  # tried when a category fails
+    queue = list(cats)
+    while queue:
+        cat = queue.pop(0)
         now = dt.datetime.now(TZ)
         today = f"{now:%B} {now.day}, {now:%Y}"
         print(f"\n== {cat}")
@@ -498,6 +510,11 @@ def main():
             failed += 1
             traceback.print_exc()
             print(f"  FAILED: {exc.__class__.__name__}: {str(exc)[:300]}")
+            if os.environ.get("GITHUB_ACTIONS"):  # an annotation shows on the run page without signing in to read the log
+                print(f"::warning title={cat} guide failed::{exc.__class__.__name__}: {str(exc)[:300]}")
+            if spare and failed <= count + 2:
+                queue.append(spare.pop(0))
+                print(f"  trying {queue[-1]} instead")
     print(f"\ndone: {len(written)} written, {failed} failed; {USAGE['calls']} API calls, estimated cost ${USAGE['cost']:.2f}")
     if not written and failed:
         sys.exit(1)
