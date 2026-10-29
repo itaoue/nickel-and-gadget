@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-30",
+  "subject": "Hear every TV line without turning up the volume",
+  "preheader": "Some fixes cost nothing, and others just plug into the back of your TV.",
+  "featured": {
+    "slug": "hear-the-tv-clearly-without-blasting-volume",
+    "teaser": "Why turning up the TV won't make voices clearer"
+  },
+  "recent": [
+    {
+      "slug": "home-blood-pressure-monitor-easy-upper-arm-cuff",
+      "teaser": "The blood pressure cuff type heart experts recommend"
+    },
+    {
+      "slug": "lightweight-cordless-vacuums-under-150-stiff-hands",
+      "teaser": "Three cordless vacuums under $150 for tired arms"
+    },
+    {
+      "slug": "heated-slippers-and-bed-foot-warmers-guide",
+      "teaser": "Warm feet at bedtime without raising the thermostat"
+    },
+    {
+      "slug": "video-doorbells-see-whos-at-the-door",
+      "teaser": "See who's at the door without leaving your chair"
+    }
+  ],
+  "poll": {
+    "question": "What do you do when TV dialogue is hard to follow?",
+    "options": [
+      "Turn up the volume",
+      "Use captions",
+      "Use headphones or a special speaker",
+      "Adjust TV sound settings"
+    ]
+  }
+}
