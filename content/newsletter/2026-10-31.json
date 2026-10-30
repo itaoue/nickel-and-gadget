@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-31",
+  "subject": "Could a forgotten pot be stopped before it burns?",
+  "preheader": "One device waits 30 seconds after the smoke alarm sounds, then cuts power or gas.",
+  "featured": {
+    "slug": "stove-auto-shut-off-devices-explained",
+    "teaser": "What stove shut-off add-ons can and can't do"
+  },
+  "recent": [
+    {
+      "slug": "choosing-simple-tablet-video-calls-family",
+      "teaser": "Which tablet makes family video calls easier to see"
+    },
+    {
+      "slug": "life-story-book-gifts-for-parents",
+      "teaser": "How a parent's stories become a hardcover book"
+    },
+    {
+      "slug": "landline-call-blockers-scam-blocking-cordless-phones",
+      "teaser": "Quiet the home phone with no apps to learn"
+    },
+    {
+      "slug": "automatic-pill-dispensers-medication-reminders-guide",
+      "teaser": "From a $70 alarm pill box to locked dispensers"
+    }
+  ],
+  "poll": {
+    "question": "Have you ever left something cooking on the stove and forgotten it?",
+    "options": [
+      "Yes, more than once",
+      "Yes, once or twice",
+      "No, never",
+      "Not sure"
+    ]
+  }
+}

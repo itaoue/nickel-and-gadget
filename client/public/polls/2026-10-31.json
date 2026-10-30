@@ -1,0 +1,11 @@
+{
+ "campaign": "2026-10-31",
+ "question": "Have you ever left something cooking on the stove and forgotten it?",
+ "options": [
+  "Yes, more than once",
+  "Yes, once or twice",
+  "No, never",
+  "Not sure"
+ ],
+ "lead": "stove-auto-shut-off-devices-explained"
+}
