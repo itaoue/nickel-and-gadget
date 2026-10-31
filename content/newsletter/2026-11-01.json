@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-01",
+  "subject": "Hear every word on TV without turning it up",
+  "preheader": "Some fixes cost nothing, and others plug in behind the set in minutes.",
+  "featured": {
+    "slug": "hear-the-tv-clearly-without-blasting-volume",
+    "teaser": "Three ways to bring the dialogue back to the TV"
+  },
+  "recent": [
+    {
+      "slug": "home-blood-pressure-monitor-easy-upper-arm-cuff",
+      "teaser": "Why upper-arm cuffs beat wrist and finger models"
+    },
+    {
+      "slug": "lightweight-cordless-vacuums-under-150-stiff-hands",
+      "teaser": "Three cordless vacuums under $150 for tired arms"
+    },
+    {
+      "slug": "heated-slippers-and-bed-foot-warmers-guide",
+      "teaser": "Warm feet at bedtime without heating the whole house"
+    },
+    {
+      "slug": "video-doorbells-see-whos-at-the-door",
+      "teaser": "See who is at the door without leaving your chair"
+    }
+  ],
+  "poll": {
+    "question": "What do you do when TV dialogue is hard to follow?",
+    "options": [
+      "Turn up the volume",
+      "Use captions",
+      "Use headphones or a speaker",
+      "Adjust TV sound settings"
+    ]
+  }
+}
