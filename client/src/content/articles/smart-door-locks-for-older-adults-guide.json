@@ -1,0 +1,143 @@
+{
+  "id": "p-smart-door-locks-for-older-adults-guide",
+  "slug": "smart-door-locks-for-older-adults-guide",
+  "category": "Smart Home",
+  "title": "Smart Door Locks for Older Adults: Keyless Entry, Auto-Lock and a Way In for Family",
+  "subtitle": "How a smart lock can ease the fumbling for keys and the worry about an unlocked door, and how to choose between adding one to your deadbolt or replacing it.",
+  "excerpt": "A smart lock can lock itself and let a caregiver in from miles away, and some models report door status to your phone. Here is how retrofit and full-replacement locks differ, what they cost and what they cannot do.",
+  "author": "Nickel And Gadget Editors",
+  "authorRole": "Editorial desk",
+  "date": "October 31, 2026",
+  "publishedAt": "2026-11-01T02:22:20+00:00",
+  "readTime": "4 min read",
+  "image": "/uploads/2026/10/smart-door-locks-for-older-adults-guide.jpg",
+  "tags": [
+    "Smart Home",
+    "Smart Locks",
+    "Home Security",
+    "Caregiving"
+  ],
+  "sections": [
+    {
+      "type": "paragraph",
+      "content": "Few small worries nag quite like the front door. Did I lock it? Where did I put my keys? Can the home health aide get in if I am resting upstairs? For many older adults, and for the grown children who live a few hours away, the door is where independence and peace of mind meet."
+    },
+    {
+      "type": "paragraph",
+      "content": "A smart lock can help. Depending on the model, it can lock itself, open with a code or a fingertip instead of a key, and let a family member lock or unlock the door from their phone. It is not a security system or a medical alert, but it can take a few daily chores off the list."
+    },
+    {
+      "type": "heading",
+      "content": "How smart locks work, and the two main kinds"
+    },
+    {
+      "type": "paragraph",
+      "content": "Many smart locks run on batteries and connect to your home Wi-Fi, the same wireless internet your computer or tablet uses. Consumer Reports also groups some picks as Bluetooth-only, which means they do not use Wi-Fi. On Wi-Fi models, a free phone app handles remote features such as locking and unlocking. Some apps also show door status or send notifications; the August and Yale pages describe this. You will usually hear about two styles."
+    },
+    {
+      "type": "subheading",
+      "content": "Retrofit: keep your deadbolt and your keys"
+    },
+    {
+      "type": "paragraph",
+      "content": "A retrofit lock attaches to the inside of the deadbolt you already have. On August's lock, that means your original keys still work. The trade-off: it is only as sturdy as the deadbolt underneath. Consumer Reports says a retrofit lock's resistance to kicking, picking and drilling depends entirely on the deadbolt it is paired with, and that many ordinary deadbolts it tested gave weak protection."
+    },
+    {
+      "type": "subheading",
+      "content": "Full replacement: a new deadbolt with a keypad"
+    },
+    {
+      "type": "paragraph",
+      "content": "A replacement lock takes the place of your existing deadbolt. Schlage's Encode Plus, for example, is a keypad deadbolt, so a parent can use a code without reaching for a phone. Check the product page for what installation involves on your door."
+    },
+    {
+      "type": "quote",
+      "content": "\"Smart locks can add an invaluable level of peace of mind,\" says Misha Kollontai, Consumer Reports test engineer for door locks."
+    },
+    {
+      "type": "heading",
+      "content": "What to look for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Your door first: not every door suits these locks. They are not suited to doors that are not standard single-cylinder deadbolts, so check the maker's compatibility list before you buy.",
+        "A way in without a phone: a keypad or fingerprint reader means a parent may not need the app. Large buttons help.",
+        "Fingerprint limits: readers can be hard to use with very dry or arthritic fingers, so a keypad code is a useful second option.",
+        "Wi-Fi details: some models work only on 2.4 GHz Wi-Fi (one of the two signal bands most home routers use), and some work only in the US and Canada. The Yale lock below is both.",
+        "Phone type: Apple Home Key, which unlocks with an iPhone or Apple Watch, only helps iPhone users.",
+        "Batteries: they run out. The August uses CR123 batteries. Keep keys or a keypad as a backup.",
+        "Total cost: expect roughly $230 to $330 for the lock. On the August, a keypad or fingerprint reader is an add-on costing about $30 to $120; Schlage's keypad is built in. Professional installation is not priced on these pages.",
+        "Warranty and returns: the pages list about 1 to 3 years. August lists 1 year, Yale 2 years on electronics and Schlage a limited 3-year electronic warranty. Yale also lists 30-day returns.",
+        "Activity feed: August and Yale describe an activity feed in their apps, if you want to see when the door was used.",
+        "Simpler option: Consumer Reports notes that a plain electronic keypad lock may suit people who do not want the smart features."
+      ]
+    },
+    {
+      "type": "products"
+    },
+    {
+      "type": "heading",
+      "content": "Setting it up and using it well"
+    },
+    {
+      "type": "paragraph",
+      "content": "The adult child usually sets up and manages the app, while the parent simply uses a code, a fingertip or a regular key. Do the setup together on a calm afternoon so everyone knows how the door works."
+    },
+    {
+      "type": "paragraph",
+      "content": "Consider giving regular visitors, such as a cleaner or aide, their own access. August offers guest virtual keys (a digital pass sent to a phone), and Schlage says codes can be assigned to guests and family. Auto-lock is listed on the August and Yale locks, so the door can secure itself. Consumer Reports notes that smart locks help if you forget to lock up or need to let in a cleaner or contractor remotely."
+    },
+    {
+      "type": "callout",
+      "content": "A smart lock does not detect falls or emergencies, and it does not call for help if a parent does not answer the door. Remote features need Wi-Fi and a smartphone app, and batteries run out. In an emergency, call 911.",
+      "label": "Good to Know"
+    },
+    {
+      "type": "paragraph",
+      "content": "Start with your door and your habits, not the longest feature list. If keeping the old keys matters, look at a retrofit. If a parent would rather tap in a code, a keypad deadbolt may be an easier fit. Either way, a lock that remembers to lock itself is one less thing to think about."
+    }
+  ],
+  "products": [
+    {
+      "name": "August Wi-Fi Smart Lock",
+      "maker": "August",
+      "price": "Starting at $229.99 (October 2026)",
+      "url": "https://august.com/products/august-wifi-smart-lock",
+      "blurb": "A retrofit lock for families who want to keep their existing deadbolt and keys; it adds remote lock and unlock, auto-lock and guest virtual keys. A keypad is an optional add-on (listed at $29.99, October 2026), and it runs on CR123 batteries."
+    },
+    {
+      "name": "Schlage Encode Plus Smart WiFi Deadbolt",
+      "maker": "Schlage",
+      "price": "From $329.00 (October 2026)",
+      "url": "https://www.schlage.com/en/home/smart-locks/encode-plus.html",
+      "blurb": "A full-replacement keypad deadbolt where codes can be assigned to guests and family. iPhone users can also unlock with Apple Home Key, and it carries a limited 3-year electronic warranty."
+    },
+    {
+      "name": "Yale Assure Lock 2 Touch with Wi-Fi",
+      "maker": "Yale Home",
+      "price": "Check current price",
+      "url": "https://shopyalehome.com/products/yale-assure-lock-2-touch-key-free-with-wi-fi",
+      "blurb": "For someone who would rather use a fingerprint or keypad code than carry keys, with auto-lock and an activity feed in the app. It needs 2.4 GHz Wi-Fi and works in the US and Canada only; matching keys cost an extra $3.99 per lock. The page's price and stock were inconsistent when checked, so recheck before buying."
+    }
+  ],
+  "sources": [
+    {
+      "label": "August Wi-Fi Smart Lock product page",
+      "url": "https://august.com/products/august-wifi-smart-lock"
+    },
+    {
+      "label": "Schlage Encode Plus product page",
+      "url": "https://www.schlage.com/en/home/smart-locks/encode-plus.html"
+    },
+    {
+      "label": "Yale Assure Lock 2 Touch with Wi-Fi product page",
+      "url": "https://shopyalehome.com/products/yale-assure-lock-2-touch-key-free-with-wi-fi"
+    },
+    {
+      "label": "Consumer Reports smart lock buying guide",
+      "url": "https://www.consumerreports.org/home-garden/door-locks/buying-guide/"
+    }
+  ],
+  "relatedIds": []
+}
