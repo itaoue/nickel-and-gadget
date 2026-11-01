@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-02",
+  "subject": "The ceiling chore your parent may never have to do again",
+  "preheader": "Two talking alarms that watch for smoke and CO, and what they still can't do",
+  "featured": {
+    "slug": "sealed-battery-smoke-co-alarms-voice-alerts",
+    "teaser": "How talking combination alarms can protect a parent's home from fire and carbon…"
+  },
+  "recent": [
+    {
+      "slug": "heated-throws-for-seniors-auto-shut-off-safety",
+      "teaser": "The one feature to look for in a heated throw"
+    },
+    {
+      "slug": "lighted-magnifiers-for-reading-small-print",
+      "teaser": "Why a stronger magnifier shows you fewer words"
+    },
+    {
+      "slug": "motion-sensor-night-lights-hallway-bathroom-stairs",
+      "teaser": "What to check before buying a night light for the hallway"
+    },
+    {
+      "slug": "stop-scam-calls-texts-smartphone-free-paid",
+      "teaser": "Free ways to quiet scam calls before you pay for anything"
+    }
+  ],
+  "poll": {
+    "question": "How do you handle a smoke alarm's low-battery chirp at home?",
+    "options": [
+      "I change the battery myself",
+      "Someone else does it for me",
+      "I have 10-year sealed alarms",
+      "Not sure"
+    ]
+  }
+}
