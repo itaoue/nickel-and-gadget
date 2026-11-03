@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-03",
+  "subject": "Check your hand warmers: 1.5 million were just recalled",
+  "preheader": "Seven model numbers to look for before winter, and what to do if you own one",
+  "featured": {
+    "slug": "rechargeable-hand-warmers-seniors-recall-check",
+    "teaser": "The recall to check before you buy a hand warmer"
+  },
+  "recent": [
+    {
+      "slug": "water-leak-sensors-for-older-adults-homes",
+      "teaser": "What a water leak sensor can and can't warn you about"
+    },
+    {
+      "slug": "auto-shut-off-electric-kettles-stiff-hands",
+      "teaser": "Three easy-lift kettles for $35 or less"
+    },
+    {
+      "slug": "smart-door-locks-for-older-adults-guide",
+      "teaser": "Smart locks that ease the key fumble and the door worry"
+    },
+    {
+      "slug": "choosing-simple-tablet-video-calls-family",
+      "teaser": "Which tablet makes family video calls easier to see"
+    }
+  ],
+  "poll": {
+    "question": "Have you checked any rechargeable hand warmers at home against a recall?",
+    "options": [
+      "Yes, I've checked",
+      "No, but I will",
+      "I don't own one",
+      "Not sure how to check"
+    ]
+  }
+}
