@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-05",
+  "subject": "Check your house for this recalled hand warmer first",
+  "preheader": "About 1.5 million were recalled in July 2026. Here are the model numbers to look for.",
+  "featured": {
+    "slug": "rechargeable-hand-warmers-seniors-recall-check",
+    "teaser": "The recall to check before buying a hand warmer"
+  },
+  "recent": [
+    {
+      "slug": "how-to-choose-a-rollator-with-seat",
+      "teaser": "The one brake step to take every time you sit"
+    },
+    {
+      "slug": "ereaders-adjustable-large-type-compared",
+      "teaser": "Three e-readers that let you make the print bigger"
+    },
+    {
+      "slug": "phone-stands-for-stiff-hands-pillow-magnetic",
+      "teaser": "Two ways to stop holding your phone all day"
+    },
+    {
+      "slug": "water-leak-sensors-for-older-adults-homes",
+      "teaser": "What a leak sensor can and can't warn you about"
+    }
+  ],
+  "poll": {
+    "question": "Do you use a hand warmer when it's cold out?",
+    "options": [
+      "Yes, rechargeable",
+      "Yes, disposable packs",
+      "No, I use gloves",
+      "Never thought about it"
+    ]
+  }
+}
