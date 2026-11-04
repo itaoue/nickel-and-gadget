@@ -19,8 +19,8 @@ notes, and a second pass acts as editor and checks every product, price and clai
 or rejecting; (4) xAI generates the cover image; (5) the JSON is written to disk.
 
 Environment: ANTHROPIC_API_KEY, XAI_API_KEY, optional STORY_AUTHOR / STORY_AUTHOR_ROLE (byline),
-STORY_EFFORT (default medium), STORY_MODEL (default claude-opus-5-5), RESEARCH_MODEL / EDITOR_MODEL
-(default claude-sonnet-5-5). Every call prints its token usage and estimated cost.
+STORY_EFFORT (default medium), STORY_MODEL (default claude-opus-5-5), RESEARCH_MODEL (default claude-haiku-5-5),
+EDITOR_MODEL (default claude-sonnet-5-5). Every call prints its token usage and estimated cost.
 """
 import argparse
 import datetime as dt
@@ -40,7 +40,7 @@ UPLOADS = ROOT / "client" / "public" / "uploads"
 sys.path.insert(0, str(ROOT / "tools"))
 
 MODEL = os.environ.get("STORY_MODEL", "claude-opus-5-5")
-RESEARCH_MODEL = os.environ.get("RESEARCH_MODEL", "claude-sonnet-5-5")
+RESEARCH_MODEL = os.environ.get("RESEARCH_MODEL", "claude-haiku-5-5")
 EDITOR_MODEL = os.environ.get("EDITOR_MODEL", "claude-sonnet-5-5")
 EFFORT = os.environ.get("STORY_EFFORT", "medium")
 AUTHOR = os.environ.get("STORY_AUTHOR", "Nickel And Gadget Editors")
@@ -48,6 +48,7 @@ AUTHOR_ROLE = os.environ.get("STORY_AUTHOR_ROLE", "Editorial desk")
 TZ = zoneinfo.ZoneInfo("America/Los_Angeles")
 PRICES = {  # $ per million tokens: input, output, cache read, cache write
     "claude-opus-5-5": (4.0, 20.0, 0.2, 5.0), "claude-sonnet-5-5": (2.0, 10.0, 0.2, 2.5),
+    "claude-haiku-5-5": (0.1, 0.5, 0.01, 0.125),  # prompts up to 100K tokens; $0.50 / $2.50 beyond
 }
 USAGE = {"calls": 0, "cost": 0.0}
 CATEGORIES = ["Health & Safety", "Smart Home", "Phones & Tablets", "Hearing & Vision", "Home & Kitchen", "Gift Ideas"]
