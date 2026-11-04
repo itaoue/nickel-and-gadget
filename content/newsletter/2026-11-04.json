@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-04",
+  "subject": "Your tub rail may not do what you think it does",
+  "preheader": "Clamp-on rails, wall bars and bath seats each solve a different problem.",
+  "featured": {
+    "slug": "bathtub-grab-bars-safety-rails-how-to-choose",
+    "teaser": "Which tub rail fits your bathtub and your walls"
+  },
+  "recent": [
+    {
+      "slug": "day-clocks-spell-out-day-and-date",
+      "teaser": "The clock that spells out Wednesday so nobody guesses"
+    },
+    {
+      "slug": "garden-kneelers-flip-over-kneeler-seats-guide",
+      "teaser": "A few-dollar pad or a bench: which saves your knees"
+    },
+    {
+      "slug": "heated-throws-for-seniors-auto-shut-off-safety",
+      "teaser": "The one feature to check before buying a heated throw"
+    },
+    {
+      "slug": "lighted-magnifiers-for-reading-small-print",
+      "teaser": "Why a stronger magnifier shows you fewer words"
+    }
+  ],
+  "poll": {
+    "question": "What helps you most when stepping in or out of the tub?",
+    "options": [
+      "A grab bar or rail",
+      "A bath seat or bench",
+      "Nothing, I manage fine",
+      "Not sure what would help"
+    ]
+  }
+}
