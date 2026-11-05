@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-06",
+  "subject": "Phone calls hard to hear? Read the words as they come",
+  "preheader": "See who may qualify for free captioning and what three CapTel models cost to buy.",
+  "featured": {
+    "slug": "captioned-phones-hearing-loss-captel-compared",
+    "teaser": "How a phone can show you every word the caller says"
+  },
+  "recent": [
+    {
+      "slug": "toilet-safety-frames-raised-seats-with-arms",
+      "teaser": "A sturdier way to sit down and stand up at the toilet"
+    },
+    {
+      "slug": "clip-on-book-lights-for-older-eyes",
+      "teaser": "Why a 60-year-old needs about three times the light"
+    },
+    {
+      "slug": "bathtub-grab-bars-safety-rails-how-to-choose",
+      "teaser": "What a clamp-on tub rail can and can't do"
+    },
+    {
+      "slug": "day-clocks-spell-out-day-and-date",
+      "teaser": "The clock that spells out the day so nothing is guessed"
+    }
+  ],
+  "poll": {
+    "question": "How do you handle phone calls when it's hard to hear the caller?",
+    "options": [
+      "Ask them to repeat",
+      "Use captions or a captioned phone",
+      "Let family talk for me",
+      "Calls aren't hard for me"
+    ]
+  }
+}
