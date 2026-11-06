@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-07",
+  "subject": "Could your smoke alarm wake you? A add-on may help",
+  "preheader": "A pillow shaker and strobe can work with the alarms you already have, within limits.",
+  "featured": {
+    "slug": "bed-shakers-flashing-alerts-smoke-alarms",
+    "teaser": "What a bed shaker adds to smoke alarms, and what it can't"
+  },
+  "recent": [
+    {
+      "slug": "grip-friendly-phone-cases-for-stiff-hands",
+      "teaser": "Slim grip or heavy-duty: the right case for stiff hands"
+    },
+    {
+      "slug": "smart-thermostats-older-adults-set-and-forget",
+      "teaser": "Set the heat once and skip the trips to the hallway dial"
+    },
+    {
+      "slug": "how-to-choose-a-rollator-with-seat",
+      "teaser": "What to check before buying a rollator with a seat"
+    },
+    {
+      "slug": "ereaders-adjustable-large-type-compared",
+      "teaser": "Three e-readers with bigger type and a built-in light"
+    }
+  ],
+  "poll": {
+    "question": "How do you make sure you'd wake up if your smoke alarm went off?",
+    "options": [
+      "Rely on the regular alarm",
+      "Have a flashing or shaking alert",
+      "Rely on someone else in the home",
+      "Not sure"
+    ]
+  }
+}
