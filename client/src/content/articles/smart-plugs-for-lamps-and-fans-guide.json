@@ -1,0 +1,132 @@
+{
+  "id": "p-smart-plugs-for-lamps-and-fans-guide",
+  "slug": "smart-plugs-for-lamps-and-fans-guide",
+  "category": "Smart Home",
+  "title": "Smart Plugs for Lamps and Fans: Lights On Without the Reach, and the One Rule for Heaters",
+  "subtitle": "A simple plug-in adapter can turn a lamp or fan on by voice, phone or schedule, as long as you keep space heaters off it.",
+  "excerpt": "Smart plugs let you switch a lamp or fan on and off without bending down to a switch or crossing a dark room. Here is how they work, what two popular ones cost, and why a space heater should not go on a standard one.",
+  "author": "Nickel And Gadget Editors",
+  "authorRole": "Editorial desk",
+  "date": "November 7, 2026",
+  "publishedAt": "2026-11-07T20:26:30+00:00",
+  "readTime": "4 min read",
+  "image": "/uploads/2026/11/smart-plugs-for-lamps-and-fans-guide.jpg",
+  "tags": [
+    "Smart Home",
+    "Smart Plugs",
+    "Lighting",
+    "Home Safety",
+    "Voice Control"
+  ],
+  "sections": [
+    {
+      "type": "paragraph",
+      "content": "Many of us have a lamp whose switch sits under the shade or behind a chair, or a fan that turns on from a button near the floor. Reaching for it is a small chore during the day. In the evening, or on a stiff-kneed morning, it can mean walking into a dark room or bending farther than is comfortable. If bending or reaching causes pain, it is worth mentioning to your doctor or an occupational therapist too."
+    },
+    {
+      "type": "paragraph",
+      "content": "A smart plug is one of the simplest fixes. It is a small adapter that goes between the wall outlet and the lamp's cord. Once it is set up, you can turn that lamp on with a voice assistant, by tapping your phone, or by letting a schedule do it for you at sunset. This guide covers two plugs, so it is not a full survey of everything on the market."
+    },
+    {
+      "type": "quote",
+      "content": "\"All the experts I spoke to say the most beneficial way for seniors to use smart plugs is with lamps.\" (A writer for NBC News, \"Tech for seniors,\" reporting what the experts she consulted told her)"
+    },
+    {
+      "type": "heading",
+      "content": "How a smart plug works"
+    },
+    {
+      "type": "paragraph",
+      "content": "The plug acts like a remote-controlled on/off switch for the outlet. It connects to your home Wi-Fi, or in some cases to a hub or similar helper device, and you control it through a phone app. Voice control depends on the plug. The Wyze plug lists Alexa and Google Assistant, while the Eve plug is built for Apple Home. Once it is set up, you can say something like \"turn on the living room lamp.\""
+    },
+    {
+      "type": "paragraph",
+      "content": "There are a few things a smart plug cannot do. It only cuts or restores power to the outlet, and it cannot switch a device that has no on/off switch of its own. A regular smart plug cannot dim a lamp, either; you need a dimmer model for that. It only controls the outlet, so it does not make a hard-to-reach lamp any easier to get to. And it is a convenience, not a safety device. It does not detect falls or call for help."
+    },
+    {
+      "type": "heading",
+      "content": "What to look for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Match your voice assistant. Wyze lists Alexa and Google but not Apple HomeKit, while Eve is built for Apple Home. No single plug here works with every system, so check before you buy.",
+        "Check your Wi-Fi. Wi-Fi plugs need a 2.4 GHz network, the older, longer-range band most home routers offer. Some plugs also need a hub or a Thread border router, a small device that relays signals to the plug. The Eve plug is one of these.",
+        "Look for monthly fees. The plugs below show no monthly fee, but buying several for a whole house adds up, so multi-packs can be better value.",
+        "Know the return policy. The Home Depot listing for the Wyze plug shows a 90-day in-store return policy. As a general tip, check the seller's policy before buying in case setup proves frustrating.",
+        "Plan for setup help. As a general tip, if a family member will help install it, have them walk you through the app so you can use it on your own."
+      ]
+    },
+    {
+      "type": "products"
+    },
+    {
+      "type": "heading",
+      "content": "Choosing between them"
+    },
+    {
+      "type": "paragraph",
+      "content": "If your household uses an Amazon Echo or a Google speaker, the Wyze plug is the more natural fit, and it costs less per plug at $14.99 on Home Depot's listing in November 2026. CNN Underscored named it the best smart plug in a roundup published about three months ago, while noting it does not support Apple HomeKit. If everyone in the home uses an iPhone, the Eve Energy is designed around Apple Home, and Best Buy listed it at $43.95 in November 2026. A matteralpha.com review, now about two years old, said it suits people in the Apple world, and some Best Buy reviewers reported setup errors when adding it to Google Home. On energy tracking, a reviewer on the Best Buy page notes the Eve plug does not yet support it, and an older Pocket-lint review said the same of the Wyze plug, so check the current listings if that matters to you."
+    },
+    {
+      "type": "callout",
+      "content": "Do not plug a space heater into a standard smart plug. Plug-in heaters commonly draw about 1,500 watts, and consumer plugs are often rated at 15 amps or 1,800 watts. A plug's timer is not a safety rating, and a heater should not run unattended on a plug's schedule. If you ever use one with a plug, it must be rated for the heater's load; otherwise, use a heater with its own timer and tip-over switch. Portable heaters caused an average of 1,600 house fires a year from 2019 to 2021, according to CPSC data cited by Consumer Reports.",
+      "label": "Before You Buy"
+    },
+    {
+      "type": "quote",
+      "content": "\"Turn the heater off when you leave the room or go to bed.\" (Consumer Reports, \"How to Use Your Space Heater Safely\")"
+    },
+    {
+      "type": "heading",
+      "content": "Setting it up and using it well"
+    },
+    {
+      "type": "paragraph",
+      "content": "Start with one lamp, the one that is hardest to reach or that you most often need in the dark. Turn the lamp's own switch to on, plug it into the smart plug, and follow the app's steps to connect it to your Wi-Fi."
+    },
+    {
+      "type": "paragraph",
+      "content": "As a general tip, give each plug a simple, memorable name, like \"bedroom lamp\" or \"hall light.\" Then set a schedule so the lamp comes on at dusk and goes off at bedtime. The Wyze app also offers a vacation mode and lets you set schedules and group devices."
+    },
+    {
+      "type": "paragraph",
+      "content": "Keep in mind that a smart plug does not move the lamp. If a lamp is in an awkward spot, it may still be worth moving it somewhere you can reach."
+    },
+    {
+      "type": "paragraph",
+      "content": "A smart plug will not change your whole home, but it can take one small, daily stretch out of your routine. Begin with a lamp, keep heaters on their own controls, and add more plugs only if the first one earns its place."
+    }
+  ],
+  "products": [
+    {
+      "name": "Wyze Wi-Fi Smart Plug, 2-Pack (WLPP1CFH)",
+      "maker": "Wyze",
+      "price": "$29.98 for two, about $14.99 per plug (The Home Depot, November 2026)",
+      "url": "https://www.homedepot.com/p/Wyze-Wi-Fi-Smart-Plug-2-Pack-WLPP1CFH/310678611",
+      "blurb": "Suits homes with Alexa or Google Assistant, with app schedules, device groups and a vacation mode. It does not work with Apple HomeKit."
+    },
+    {
+      "name": "Eve Energy Smart Plug (Matter)",
+      "maker": "Eve",
+      "price": "$43.95 (Best Buy, November 2026)",
+      "url": "https://www.bestbuy.com/product/eve-energy-smart-plug-matter-white/J3L3KQ4LQ6/sku/6546393/reviews?variant=A",
+      "blurb": "Best suited to iPhone households using Apple Home for schedules and automations. The link goes to its Best Buy reviews page. Its listing mentions Thread, which means it needs a Thread border router, and some reviewers report trouble adding it to Google Home."
+    }
+  ],
+  "sources": [
+    {
+      "label": "The Home Depot: Wyze Wi-Fi Smart Plug, 2-Pack",
+      "url": "https://www.homedepot.com/p/Wyze-Wi-Fi-Smart-Plug-2-Pack-WLPP1CFH/310678611"
+    },
+    {
+      "label": "Wyze: Wyze Plug product page",
+      "url": "https://www.wyze.com/products/wyze-plug"
+    },
+    {
+      "label": "Best Buy: Eve Energy Smart Plug (Matter)",
+      "url": "https://www.bestbuy.com/product/eve-energy-smart-plug-matter-white/J3L3KQ4LQ6/sku/6546393/reviews?variant=A"
+    }
+  ],
+  "relatedIds": []
+}
