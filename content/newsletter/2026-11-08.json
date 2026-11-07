@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-08",
+  "subject": "Phone calls hard to follow? Read the words as you talk",
+  "preheader": "Who may qualify for free captioning, and what three CapTel models cost to buy",
+  "featured": {
+    "slug": "captioned-phones-hearing-loss-captel-compared",
+    "teaser": "Phones that show the caller's words on a screen"
+  },
+  "recent": [
+    {
+      "slug": "wireless-phone-chargers-bedside-apple-anker-compared",
+      "teaser": "A bedside charger with no plug to line up"
+    },
+    {
+      "slug": "smart-plugs-for-lamps-and-fans-guide",
+      "teaser": "Turn on a lamp without reaching, and the one rule for heaters"
+    },
+    {
+      "slug": "easier-garden-pruners-for-stiff-hands",
+      "teaser": "Pruners that take some of the squeeze out of yard work"
+    },
+    {
+      "slug": "toilet-safety-frames-raised-seats-with-arms",
+      "teaser": "Easier sitting and standing at the toilet, explained"
+    }
+  ],
+  "poll": {
+    "question": "How do you handle phone calls when it's hard to hear the other person?",
+    "options": [
+      "Ask them to repeat",
+      "Use captions or a special phone",
+      "Switch to texting or video",
+      "Hearing is fine on calls"
+    ]
+  }
+}
