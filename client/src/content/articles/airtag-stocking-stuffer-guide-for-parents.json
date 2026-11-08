@@ -1,0 +1,134 @@
+{
+  "id": "p-airtag-stocking-stuffer-guide-for-parents",
+  "slug": "airtag-stocking-stuffer-guide-for-parents",
+  "category": "Gift Ideas",
+  "title": "AirTag as a Stocking Stuffer: What a $29 Tracker Does, What It Doesn't, and Who It Suits",
+  "subtitle": "A small, low-cost gift for the person who is always hunting for keys, but only if they carry an iPhone and you know its limits.",
+  "excerpt": "Apple's AirTag can help an iPhone owner find misplaced keys or a purse, and Apple's page shows no monthly fee. Here is what it does, what it can't do, and what to check before you buy.",
+  "author": "Nickel And Gadget Editors",
+  "authorRole": "Editorial desk",
+  "date": "November 8, 2026",
+  "publishedAt": "2026-11-08T20:36:11+00:00",
+  "readTime": "3 min read",
+  "image": "/uploads/2026/11/airtag-stocking-stuffer-guide-for-parents.jpg",
+  "tags": [
+    "Gift Ideas",
+    "Item Trackers",
+    "AirTag",
+    "iPhone",
+    "Privacy"
+  ],
+  "sections": [
+    {
+      "type": "paragraph",
+      "content": "Most of us know the routine. The car keys were right here a minute ago. The purse is in the house somewhere. The glasses case went into a coat pocket, but which coat? None of it is a crisis, but it adds up to a lot of patting pockets and checking the same drawer twice."
+    },
+    {
+      "type": "paragraph",
+      "content": "A Bluetooth item tracker is a small disc you attach to things that tend to wander. Apple's AirTag is one option, and at $29 (Apple list price, November 2026) it fits easily in a stocking. It can suit a parent or grandparent who already uses an iPhone. It is a poor fit for anyone who doesn't, and it helps to know why before you wrap one."
+    },
+    {
+      "type": "heading",
+      "content": "How an AirTag Works"
+    },
+    {
+      "type": "paragraph",
+      "content": "An AirTag talks to an iPhone using Bluetooth, the same short-range wireless link that connects phones to headphones. Apple says it works with the Find My app on an iPhone or Apple Watch, and shows distance and direction when the tag is nearby."
+    },
+    {
+      "type": "paragraph",
+      "content": "You can also make the tag play a sound. Apple says the speaker is 50% louder than the previous generation, and lists a Precision Finding range of up to 1.5x. These are Apple's own claims, and we have not tested them. Apple's headline puts it simply: \"What was lost is now sound.\""
+    },
+    {
+      "type": "paragraph",
+      "content": "Apple also lists Lost Mode, plus an NFC tap (a very short-range tap signal) that can show contact info to a person who finds the tag."
+    },
+    {
+      "type": "heading",
+      "content": "What It Can't Do"
+    },
+    {
+      "type": "paragraph",
+      "content": "A tracker only helps if the item is within Bluetooth range of your phone, or near another device on the same network. It cannot locate items in remote areas unless other people's devices relay the signal."
+    },
+    {
+      "type": "paragraph",
+      "content": "It is not a medical alert or fall detector. It sends no call for help, and it does not track anyone's health. For health or safety questions, talk with a doctor or pharmacist. In an emergency, call 911."
+    },
+    {
+      "type": "paragraph",
+      "content": "It also needs an iPhone or iPad. Apple's page lists no Android option. If your parent uses an Android phone, other brands such as Tile or Samsung's SmartTag exist, but we have not verified their details here, so check their current prices and any subscription terms on the maker's site."
+    },
+    {
+      "type": "heading",
+      "content": "What to Look For"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Phone match: Apple says AirTag requires an iPhone with iOS 26.0 or later, or an iPad with iPadOS 26.0 or later. Check the phone's software version before you buy.",
+        "Fees: Apple's page shows no subscription or monthly charge for AirTag. Other brands may differ, so read the fine print.",
+        "Battery: Apple says the battery lasts more than a year and is a user-replaceable CR2032 coin cell. That is a maker claim we have not tested.",
+        "Water and dust: Apple lists an IP67 rating. That is also Apple's claim, not something we have tested.",
+        "Sharing: Apple says you can \"Share AirTag with up to five people.\"",
+        "Engraving and shipping: Apple's page offers free initials or emoji engraving when bought from Apple, and says it ships free.",
+        "Returns and setup help: check the seller's return policy, and ask whether setup help is available."
+      ]
+    },
+    {
+      "type": "products"
+    },
+    {
+      "type": "heading",
+      "content": "Using It Well"
+    },
+    {
+      "type": "paragraph",
+      "content": "Setup is easiest in person, so consider making it part of the visit. Apple's support pages walk through the steps for adding a new AirTag, so follow those together on your parent's iPhone."
+    },
+    {
+      "type": "paragraph",
+      "content": "Once it is set up, practice once. Hide the keys, use the Find My app to locate them, and let your parent do it. A single practice run makes the real moment much less stressful."
+    },
+    {
+      "type": "paragraph",
+      "content": "Since the battery is replaceable, note the date you start and plan to check it around the one-year mark."
+    },
+    {
+      "type": "callout",
+      "content": "Item trackers are meant for things, not people. Give a tag only to the person who will carry the item, and never slip one into someone's bag or coat without their knowledge. Show your parent how to check for unknown tags on their phone. Our prices were checked in November 2026 and can change.",
+      "label": "Good to Know"
+    },
+    {
+      "type": "paragraph",
+      "content": "For an iPhone user who spends too many mornings hunting for keys, an AirTag is a modest gift with no monthly fee shown on Apple's page. Check the phone match first, and set it up together."
+    }
+  ],
+  "products": [
+    {
+      "name": "AirTag (1 pack)",
+      "maker": "Apple",
+      "price": "$29.00 (Apple list price, November 2026)",
+      "url": "https://www.apple.com/shop/buy-airtag/airtag/1-pack",
+      "blurb": "Suits an iPhone or iPad owner who wants to keep track of one item, such as car keys. Apple lists a replaceable battery and free engraving when bought from Apple."
+    },
+    {
+      "name": "AirTag (4 pack)",
+      "maker": "Apple",
+      "price": "$99.00 (Apple list price, November 2026)",
+      "url": "https://www.apple.com/shop/buy-airtag/airtag/1-pack",
+      "blurb": "The 4 pack is an option on the same Apple page as the 1 pack. Choose it there if you want more than one tag."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Apple: Buy AirTag",
+      "url": "https://www.apple.com/shop/buy-airtag/airtag/1-pack"
+    },
+    {
+      "label": "Apple: AirTag overview",
+      "url": "https://www.apple.com/airtag/"
+    }
+  ],
+  "relatedIds": []
+}
