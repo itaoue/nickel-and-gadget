@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-09",
+  "subject": "Will your smoke alarm wake you? A pillow add-on helps",
+  "preheader": "What a bed shaker and flashing hub add to alarms you already own, and where they fall short",
+  "featured": {
+    "slug": "bed-shakers-flashing-alerts-smoke-alarms",
+    "teaser": "What bed shakers add to the alarms you already have"
+  },
+  "recent": [
+    {
+      "slug": "big-button-amplified-phones-corded-cordless",
+      "teaser": "Louder calls and bigger keys: corded or cordless"
+    },
+    {
+      "slug": "robot-vacuums-for-stiff-hands-sore-backs",
+      "teaser": "A vacuum that empties itself for up to 75 days"
+    },
+    {
+      "slug": "airtag-stocking-stuffer-guide-for-parents",
+      "teaser": "What a $29 tracker does, and who it really suits"
+    },
+    {
+      "slug": "grip-friendly-phone-cases-for-stiff-hands",
+      "teaser": "Slim grip or heavy-duty: which case suits stiff hands"
+    }
+  ],
+  "poll": {
+    "question": "How would your smoke alarm wake you if you were sound asleep?",
+    "options": [
+      "Loud beeping alone",
+      "Flashing light or bed shaker",
+      "Someone else would wake me",
+      "Not sure"
+    ]
+  }
+}
