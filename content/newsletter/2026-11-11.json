@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-11",
+  "subject": "Will your phone last when the lights go out?",
+  "preheader": "A small battery box can help, but only if you do one thing before the storm hits.",
+  "featured": {
+    "slug": "power-banks-for-power-outages-what-to-know",
+    "teaser": "What a power bank can charge and what it can't"
+  },
+  "recent": [
+    {
+      "slug": "talking-book-players-for-low-vision",
+      "teaser": "The free audiobook player to check before paying $500"
+    },
+    {
+      "slug": "smart-bulbs-for-ceiling-lights-hue-essential",
+      "teaser": "Control an overhead light without rewiring a thing"
+    },
+    {
+      "slug": "big-button-amplified-phones-corded-cordless",
+      "teaser": "Corded or cordless: which amplified phone fits you"
+    },
+    {
+      "slug": "robot-vacuums-for-stiff-hands-sore-backs",
+      "teaser": "A vacuum that empties itself for up to 75 days"
+    }
+  ],
+  "poll": {
+    "question": "How do you keep your phone charged during a power outage?",
+    "options": [
+      "I use a power bank",
+      "Car charger",
+      "Just conserve battery",
+      "Not sure"
+    ]
+  }
+}
