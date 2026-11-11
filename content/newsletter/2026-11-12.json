@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-12",
+  "subject": "The riskiest moment of your day, and what to measure",
+  "preheader": "A bench slides across the tub edge, but only if it fits your tub and you.",
+  "featured": {
+    "slug": "tub-transfer-bench-shower-seat-buying-guide",
+    "teaser": "What to measure before you buy a tub transfer bench"
+  },
+  "recent": [
+    {
+      "slug": "electric-can-openers-for-stiff-hands",
+      "teaser": "Four countertop can openers for sore hands, and prices"
+    },
+    {
+      "slug": "reacher-grabber-tools-pick-up-without-bending",
+      "teaser": "How to pick a reacher so you can skip the stooping"
+    },
+    {
+      "slug": "scanning-old-family-photos-and-slides-at-home",
+      "teaser": "Why prints and slides need two different scanners"
+    },
+    {
+      "slug": "cordless-power-scrubbers-for-stiff-hands",
+      "teaser": "What a power scrubber can't do for stiff hands"
+    }
+  ],
+  "poll": {
+    "question": "How do you get in and out of your tub or shower now?",
+    "options": [
+      "Step over the wall, no help",
+      "Use a seat or grab bar",
+      "Mostly use a walk-in shower",
+      "Avoid the tub if I can"
+    ]
+  }
+}
