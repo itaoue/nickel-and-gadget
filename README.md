@@ -35,7 +35,7 @@ poll, sponsors and BigMailer status per issue), poll results, guides with produc
 
 - GitHub secrets: `ANTHROPIC_API_KEY`, `XAI_API_KEY`, `BIGMAILER_API_KEY`. Optional variables: `NAG_NEWSLETTER_LIST_IDS`,
   `DAILY_ARTICLES`, model overrides.
-- Railway variables: `DATABASE_URL` (Postgres for poll votes and the signup log), `ADMIN_PASSWORD` (admin sign-in), `BIGMAILER_API_KEY` (site signups go to the brand's "Website Signups" list), optional
+- Railway variables: `DATABASE_URL` (Postgres for poll votes and the signup log), `ADMIN_PASSWORD` (admin sign-in), `BIGMAILER_API_KEY` (site signups go to the brand's "Website Signups" list; a subscriber's first vote on a poll adds them to the list "NAG Poll Clickers", created on first use, `BIGMAILER_POLL_LIST_ID` overrides or `off` disables; /admin/polls has a backfill button for past voters), optional
   `VITE_AMAZON_TAG` (adds an Amazon Associates tag to amazon.com product links at build time).
 - Local: `pnpm install && pnpm dev` (node lives in `~/.local/node/bin`).
 

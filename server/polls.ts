@@ -12,6 +12,10 @@
  *
  * One vote per subscriber when the email link carries ?c=*|_ID|* (last click wins, so link scanners that
  * pre-open every option cannot lock in a choice); otherwise one vote per browser cookie / ip+UA hash.
+ *
+ * A subscriber's first vote on a poll also puts them on the brand's BigMailer list "NAG Poll Clickers" (needs
+ * BIGMAILER_API_KEY; the list is found by name and created if missing, or set BIGMAILER_POLL_LIST_ID; "off" turns it off).
+ * The admin's Polls page has a button that adds everyone who voted before this existed.
  */
 import crypto from "crypto";
 import fs from "fs";
@@ -39,7 +43,10 @@ interface Vote {
 
 export interface Store {
   kind: "postgres" | "memory";
-  vote(v: Vote): Promise<void>;
+  /** Resolves true when this is the subscriber's first vote on the poll (a new row with a contact id). */
+  vote(v: Vote): Promise<boolean>;
+  /** Every BigMailer contact id that has voted on any poll. */
+  contacts(): Promise<string[]>;
   counts(campaign: string): Promise<Map<number, number>>;
   /** Total votes stored; throws if the database cannot be reached. */
   total(): Promise<number>;
@@ -58,6 +65,10 @@ function memoryStore(): Store {
       );
       if (prior && v.contact) prior.choice = v.choice;
       else if (!prior) votes.push(v);
+      return !prior && !!v.contact;
+    },
+    async contacts() {
+      return Array.from(new Set(votes.map((v) => v.contact).filter(Boolean)));
     },
     async counts(campaign) {
       const m = new Map<number, number>();
@@ -92,18 +103,26 @@ function pgStore(pool: pg.Pool): Store {
     async vote(v) {
       await ready;
       if (v.contact) {
-        await pool.query(
+        const r = await pool.query(
           `INSERT INTO nag_poll_votes (campaign, choice, voter, contact_id) VALUES ($1, $2, $3, $4)
-           ON CONFLICT (campaign, contact_id) WHERE contact_id <> '' DO UPDATE SET choice = EXCLUDED.choice, updated_at = now()`,
+           ON CONFLICT (campaign, contact_id) WHERE contact_id <> '' DO UPDATE SET choice = EXCLUDED.choice, updated_at = now()
+           RETURNING (xmax = 0) AS inserted`,
           [v.campaign, v.choice, v.voter, v.contact],
         );
+        return r.rows[0]?.inserted === true;
       } else {
         await pool.query(
           `INSERT INTO nag_poll_votes (campaign, choice, voter) VALUES ($1, $2, $3)
            ON CONFLICT (campaign, voter) WHERE contact_id = '' DO NOTHING`,
           [v.campaign, v.choice, v.voter],
         );
+        return false;
       }
+    },
+    async contacts() {
+      await ready;
+      const r = await pool.query("SELECT DISTINCT contact_id FROM nag_poll_votes WHERE contact_id <> ''");
+      return r.rows.map((row) => String(row.contact_id));
     },
     async counts(campaign) {
       await ready;
@@ -111,6 +130,76 @@ function pgStore(pool: pg.Pool): Store {
       return new Map(r.rows.map((row) => [Number(row.choice), Number(row.n)]));
     },
   };
+}
+
+// ---------- BigMailer "poll clickers" list ----------
+
+const BM_API = "https://api.bigmailer.io/v1";
+const BM_BRAND = process.env.BIGMAILER_BRAND_ID || "9d22c1e6-0bdb-4728-9fc7-4ab6316e7d0f";
+const POLL_LIST_NAME = "NAG Poll Clickers";
+let pollListId: Promise<string> | null = null;
+
+async function bm(key: string, method: string, url: string, body?: unknown): Promise<Response> {
+  for (let attempt = 0; ; attempt++) {
+    const r = await fetch(`${BM_API}/brands/${BM_BRAND}${url}`, {
+      method,
+      headers: { "X-API-Key": key, "Content-Type": "application/json" },
+      body: body === undefined ? undefined : JSON.stringify(body),
+      signal: AbortSignal.timeout(8000),
+    });
+    if (r.status !== 429 || attempt >= 2) return r;
+    await new Promise((done) => setTimeout(done, 2000 * (attempt + 1)));
+  }
+}
+
+/** BIGMAILER_POLL_LIST_ID, else the brand's list named "NAG Poll Clickers" (created on first use). */
+async function findPollList(key: string): Promise<string> {
+  let cursor = "";
+  do {
+    const r = await bm(key, "GET", `/lists?limit=100${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ""}`);
+    if (!r.ok) throw new Error(`list lookup ${r.status} ${(await r.text()).slice(0, 200)}`);
+    const page = (await r.json()) as { data?: { id: string; name: string }[]; has_more?: boolean; cursor?: string };
+    const hit = page.data?.find((l) => l.name.trim().toLowerCase() === POLL_LIST_NAME.toLowerCase());
+    if (hit) return hit.id;
+    cursor = page.has_more && page.cursor ? page.cursor : "";
+  } while (cursor);
+  const made = await bm(key, "POST", "/lists", { name: POLL_LIST_NAME });
+  if (!made.ok) throw new Error(`list create ${made.status} ${(await made.text()).slice(0, 200)}`);
+  const id = ((await made.json()) as { id?: string }).id;
+  if (!id) throw new Error("list create returned no id");
+  console.log(`polls: created the BigMailer list "${POLL_LIST_NAME}" (${id})`);
+  return id;
+}
+
+/**
+ * Put subscribers who voted from the email on the poll-clickers list (list_ids_op=add keeps their other lists).
+ * Never throws; resolves how many contacts were updated, or null when it is switched off or the list is unavailable.
+ */
+export async function addPollClickers(contactIds: string[]): Promise<number | null> {
+  const key = process.env.BIGMAILER_API_KEY ?? "";
+  const fixed = (process.env.BIGMAILER_POLL_LIST_ID ?? "").trim();
+  const ids = contactIds.filter((c) => CONTACT_RE.test(c));
+  if (!key || fixed.toLowerCase() === "off") return null;
+  let list: string;
+  try {
+    pollListId ??= fixed ? Promise.resolve(fixed) : findPollList(key);
+    list = await pollListId;
+  } catch (err) {
+    pollListId = null; // try again on the next vote
+    console.error("polls: BigMailer poll-clickers list unavailable:", (err as Error).message);
+    return null;
+  }
+  let done = 0;
+  for (const cid of ids) {
+    try {
+      const r = await bm(key, "POST", `/contacts/${cid}?list_ids_op=add`, { list_ids: [list] });
+      if (r.ok) done++;
+      else console.warn(`polls: list add failed for ${cid}: ${r.status} ${(await r.text()).slice(0, 200)}`); // 404 = contact deleted since the send
+    } catch (err) {
+      console.warn(`polls: list add failed for ${cid}:`, (err as Error).message);
+    }
+  }
+  return done;
 }
 
 function cookie(req: Request, name: string): string {
@@ -148,7 +237,8 @@ export function registerPolls(app: Express, staticPath: string): Store {
       try {
         const already = cookie(req, `pv_${poll.campaign}`);
         if (CONTACT_RE.test(contact) || !already) {
-          await store.vote({ campaign: poll.campaign, choice, voter: voterId(req), contact: CONTACT_RE.test(contact) ? contact : "" });
+          const first = await store.vote({ campaign: poll.campaign, choice, voter: voterId(req), contact: CONTACT_RE.test(contact) ? contact : "" });
+          if (first) void addPollClickers([contact]); // off the request: the reader is never held up by BigMailer
         }
       } catch (err) {
         console.error("polls: vote not saved", err);

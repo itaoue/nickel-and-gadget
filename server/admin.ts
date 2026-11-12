@@ -16,7 +16,7 @@ import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import express, { type Express, type Request, type Response, type NextFunction } from "express";
-import type { Store } from "./polls";
+import { addPollClickers, type Store } from "./polls";
 import { listSignups, signupCounts } from "./signups";
 
 const SITE = "https://www.nickelandgadget.com";
@@ -280,7 +280,26 @@ export function registerAdmin(app: Express, staticPath: string, root: string, po
     );
   });
 
-  router.get("/polls", async (_req, res) => {
+  // Backfill: everyone who ever voted from an email link goes on the BigMailer "NAG Poll Clickers" list (safe to repeat).
+  let syncing = false;
+  router.post("/polls/sync-clickers", async (_req, res) => {
+    if (syncing) return res.redirect("/admin/polls?sync=busy");
+    let ids: string[];
+    try {
+      ids = await polls.contacts();
+    } catch (err) {
+      console.error("admin: could not read poll voters", err);
+      return res.redirect("/admin/polls?sync=error");
+    }
+    if (!process.env.BIGMAILER_API_KEY) return res.redirect("/admin/polls?sync=off");
+    syncing = true;
+    addPollClickers(ids)
+      .then((n) => console.log(`admin: poll-clickers backfill added ${n ?? "no"} of ${ids.length} contacts`))
+      .finally(() => (syncing = false));
+    res.redirect(`/admin/polls?sync=${ids.length}`);
+  });
+
+  router.get("/polls", async (req, res) => {
     const ps = pollFiles();
     const blocks = await Promise.all(
       ps.map(async (p) => {
@@ -300,6 +319,9 @@ export function registerAdmin(app: Express, staticPath: string, root: string, po
       page(
         "Polls",
         `${polls.kind === "memory" ? `<p class="warn">Votes are kept in memory and are lost on every deploy: set DATABASE_URL.</p>` : ""}
+${syncNote(String(req.query.sync ?? ""))}
+<form method="post" action="/admin/polls/sync-clickers" style="margin:0 0 16px"><button>Add all past voters to &#8220;NAG Poll Clickers&#8221;</button>
+<span class="muted"> New voters are added to this BigMailer list automatically on their first vote.</span></form>
 ${blocks.join("") || `<p class="muted">No polls yet.</p>`}
 <p class="muted">One vote per subscriber via the email link (last click wins); link scanners and bots are not counted.</p>`,
         "/admin/polls",
@@ -387,6 +409,14 @@ ${blocks.join("") || `<p class="muted">No polls yet.</p>`}
   });
 
   app.use("/admin", router);
+}
+
+function syncNote(sync: string): string {
+  if (!sync) return "";
+  if (sync === "off") return `<p class="warn">BIGMAILER_API_KEY is not set, so nothing was sent to BigMailer.</p>`;
+  if (sync === "error") return `<p class="warn">Could not read the voters from the database.</p>`;
+  if (sync === "busy") return `<p class="warn">A backfill is already running.</p>`;
+  return `<p class="muted">Adding ${esc(sync)} past voter${sync === "1" ? "" : "s"} to the BigMailer list in the background (about a minute per 200; see the server log for the result).</p>`;
 }
 
 // ---------- layout ----------
