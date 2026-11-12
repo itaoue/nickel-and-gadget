@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-13",
+  "subject": "Before you spend $500 on a talking book player, check this",
+  "preheader": "A free player from the Library of Congress may already be available to you.",
+  "featured": {
+    "slug": "talking-book-players-for-low-vision",
+    "teaser": "The free talking book player to check before you buy"
+  },
+  "recent": [
+    {
+      "slug": "smart-bird-feeder-camera-gift-guide",
+      "teaser": "What a bird feeder camera does free and what costs extra"
+    },
+    {
+      "slug": "magnetic-charging-cables-for-stiff-hands",
+      "teaser": "The small connector that makes charging easier on stiff hands"
+    },
+    {
+      "slug": "indoor-cameras-for-checking-in-on-a-parent",
+      "teaser": "Checking in on a parent with a camera, and asking first"
+    },
+    {
+      "slug": "power-banks-for-power-outages-what-to-know",
+      "teaser": "What a power bank can and can't charge in an outage"
+    }
+  ],
+  "poll": {
+    "question": "How do you mostly listen to audiobooks right now?",
+    "options": [
+      "On my phone or tablet",
+      "On a dedicated player",
+      "On a computer or smart speaker",
+      "I don't listen to audiobooks"
+    ]
+  }
+}
