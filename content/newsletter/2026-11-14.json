@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-14",
+  "subject": "Did you close the garage door? Your phone can tell you",
+  "preheader": "A small add-on works with the opener you already own, if your Wi-Fi reaches the garage",
+  "featured": {
+    "slug": "smart-garage-door-control-check-from-phone",
+    "teaser": "How to close the garage door from your phone"
+  },
+  "recent": [
+    {
+      "slug": "wall-mount-hose-reels-lightweight-hoses-easier-watering",
+      "teaser": "A tidier way to water that spares your back"
+    },
+    {
+      "slug": "big-button-tv-remotes-for-seniors",
+      "teaser": "Big-button remotes and what they can't do"
+    },
+    {
+      "slug": "electric-can-openers-for-stiff-hands",
+      "teaser": "Four electric can openers for sore, stiff hands"
+    },
+    {
+      "slug": "reacher-grabber-tools-pick-up-without-bending",
+      "teaser": "Pick things up without bending, and how to choose"
+    }
+  ],
+  "poll": {
+    "question": "How do you check that your garage door is closed?",
+    "options": [
+      "I look at it myself",
+      "I go back and check",
+      "I use a phone app",
+      "I don't always check"
+    ]
+  }
+}
