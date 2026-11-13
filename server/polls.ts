@@ -15,7 +15,9 @@
  *
  * A subscriber's first vote on a poll also puts them on the brand's BigMailer list "NAG Poll Clickers" (needs
  * BIGMAILER_API_KEY; the list is found by name and created if missing, or set BIGMAILER_POLL_LIST_ID; "off" turns it off).
- * The admin's Polls page has a button that adds everyone who voted before this existed.
+ * Each vote row remembers whether its subscriber is on the list (column listed); a few seconds after every start the
+ * server adds whoever is not yet (past voters, and votes whose BigMailer call failed). The admin's Polls page has a
+ * button that re-sends everyone.
  */
 import crypto from "crypto";
 import fs from "fs";
@@ -47,6 +49,9 @@ export interface Store {
   vote(v: Vote): Promise<boolean>;
   /** Every BigMailer contact id that has voted on any poll. */
   contacts(): Promise<string[]>;
+  /** Contact ids not yet confirmed on the BigMailer poll-clickers list. */
+  unlisted(): Promise<string[]>;
+  markListed(contactIds: string[]): Promise<void>;
   counts(campaign: string): Promise<Map<number, number>>;
   /** Total votes stored; throws if the database cannot be reached. */
   total(): Promise<number>;
@@ -54,8 +59,15 @@ export interface Store {
 
 function memoryStore(): Store {
   const votes: Vote[] = [];
+  const listed = new Set<string>();
   return {
     kind: "memory",
+    async unlisted() {
+      return Array.from(new Set(votes.map((v) => v.contact).filter((c) => c && !listed.has(c))));
+    },
+    async markListed(ids) {
+      ids.forEach((c) => listed.add(c));
+    },
     async total() {
       return votes.length;
     },
@@ -89,6 +101,7 @@ function pgStore(pool: pg.Pool): Store {
       created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
       updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    ALTER TABLE nag_poll_votes ADD COLUMN IF NOT EXISTS listed BOOLEAN NOT NULL DEFAULT false;
     CREATE UNIQUE INDEX IF NOT EXISTS nag_poll_votes_contact ON nag_poll_votes (campaign, contact_id) WHERE contact_id <> '';
     CREATE UNIQUE INDEX IF NOT EXISTS nag_poll_votes_voter ON nag_poll_votes (campaign, voter) WHERE contact_id = '';
   `);
@@ -118,6 +131,15 @@ function pgStore(pool: pg.Pool): Store {
         );
         return false;
       }
+    },
+    async unlisted() {
+      await ready;
+      const r = await pool.query("SELECT contact_id FROM nag_poll_votes WHERE contact_id <> '' GROUP BY contact_id HAVING NOT bool_or(listed)");
+      return r.rows.map((row) => String(row.contact_id));
+    },
+    async markListed(ids) {
+      await ready;
+      if (ids.length) await pool.query("UPDATE nag_poll_votes SET listed = true WHERE contact_id = ANY($1) AND NOT listed", [ids]);
     },
     async contacts() {
       await ready;
@@ -173,9 +195,9 @@ async function findPollList(key: string): Promise<string> {
 
 /**
  * Put subscribers who voted from the email on the poll-clickers list (list_ids_op=add keeps their other lists).
- * Never throws; resolves how many contacts were updated, or null when it is switched off or the list is unavailable.
+ * Never throws; resolves the contacts that were updated, or null when it is switched off or the list is unavailable.
  */
-export async function addPollClickers(contactIds: string[]): Promise<number | null> {
+export async function addPollClickers(contactIds: string[]): Promise<string[] | null> {
   const key = process.env.BIGMAILER_API_KEY ?? "";
   const fixed = (process.env.BIGMAILER_POLL_LIST_ID ?? "").trim();
   const ids = contactIds.filter((c) => CONTACT_RE.test(c));
@@ -189,17 +211,31 @@ export async function addPollClickers(contactIds: string[]): Promise<number | nu
     console.error("polls: BigMailer poll-clickers list unavailable:", (err as Error).message);
     return null;
   }
-  let done = 0;
+  const done: string[] = [];
   for (const cid of ids) {
     try {
       const r = await bm(key, "POST", `/contacts/${cid}?list_ids_op=add`, { list_ids: [list] });
-      if (r.ok) done++;
+      if (r.ok) done.push(cid);
       else console.warn(`polls: list add failed for ${cid}: ${r.status} ${(await r.text()).slice(0, 200)}`); // 404 = contact deleted since the send
     } catch (err) {
       console.warn(`polls: list add failed for ${cid}:`, (err as Error).message);
     }
   }
   return done;
+}
+
+/** Add every voter not yet on the list, and remember the ones BigMailer took. Never throws. */
+export async function syncPollClickers(store: Store, only?: string[]): Promise<void> {
+  try {
+    const ids = only ?? (await store.unlisted());
+    if (!ids.length) return;
+    const done = await addPollClickers(ids);
+    if (!done) return;
+    await store.markListed(done);
+    if (!only) console.log(`polls: added ${done.length} of ${ids.length} past voters to the BigMailer list "${POLL_LIST_NAME}"`);
+  } catch (err) {
+    console.error("polls: poll-clickers sync failed", err);
+  }
 }
 
 function cookie(req: Request, name: string): string {
@@ -215,6 +251,8 @@ function voterId(req: Request): string {
 export function registerPolls(app: Express, staticPath: string): Store {
   const store = dbPool ? pgStore(dbPool) : memoryStore();
   if (!dbPool) console.warn("polls: DATABASE_URL is not set; votes are kept in memory and lost on restart");
+
+  setTimeout(() => void syncPollClickers(store), 5000).unref(); // catch up on voters who are not on the BigMailer list yet
 
   const loadPoll = (campaign: string): Poll | null => {
     if (!CAMPAIGN_RE.test(campaign)) return null;
@@ -238,7 +276,7 @@ export function registerPolls(app: Express, staticPath: string): Store {
         const already = cookie(req, `pv_${poll.campaign}`);
         if (CONTACT_RE.test(contact) || !already) {
           const first = await store.vote({ campaign: poll.campaign, choice, voter: voterId(req), contact: CONTACT_RE.test(contact) ? contact : "" });
-          if (first) void addPollClickers([contact]); // off the request: the reader is never held up by BigMailer
+          if (first) void syncPollClickers(store, [contact]); // off the request: the reader is never held up by BigMailer
         }
       } catch (err) {
         console.error("polls: vote not saved", err);

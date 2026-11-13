@@ -294,7 +294,11 @@ export function registerAdmin(app: Express, staticPath: string, root: string, po
     if (!process.env.BIGMAILER_API_KEY) return res.redirect("/admin/polls?sync=off");
     syncing = true;
     addPollClickers(ids)
-      .then((n) => console.log(`admin: poll-clickers backfill added ${n ?? "no"} of ${ids.length} contacts`))
+      .then(async (done) => {
+        console.log(`admin: poll-clickers backfill added ${done?.length ?? "no"} of ${ids.length} contacts`);
+        if (done) await polls.markListed(done);
+      })
+      .catch((err) => console.error("admin: poll-clickers backfill failed", err))
       .finally(() => (syncing = false));
     res.redirect(`/admin/polls?sync=${ids.length}`);
   });
