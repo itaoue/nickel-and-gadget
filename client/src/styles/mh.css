@@ -224,6 +224,7 @@ body{margin:0;background:var(--uw-bg);color:var(--uw-ink);font:14px/1.6 var(--uw
 .pick__num{width:44px;height:44px;border-radius:50%;background:#eaf2fa;color:var(--uw-accent);display:grid;place-items:center;font:700 18px var(--uw-sans)}
 .pick__name{font-weight:700;font-size:16px;color:var(--uw-head);line-height:1.3;margin:0}
 .pick__maker{font-size:12px;color:var(--uw-muted);text-transform:uppercase;letter-spacing:.04em}
+.pick__sponsored{color:var(--uw-amber);font-weight:700}
 .pick__blurb{margin:4px 0 0;font-size:14px;line-height:1.55}
 .pick__price{display:block;font-size:13px;font-weight:700;color:var(--uw-amber);margin-top:4px}
 .uw .pick__btn{display:inline-block;white-space:nowrap;background:var(--uw-amber);color:#fff;font:700 13px var(--uw-sans);text-transform:uppercase;padding:10px 16px;border-radius:22px}

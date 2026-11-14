@@ -1,5 +1,5 @@
 {
-  "_comment": "Sponsor native ads for the daily email. sub1 / external_id prefix is always nag. {campaign} = issue date, {slot} = top|mid, {banner} = name. Each issue shows two different groups when it can; overrides pin {date: {slot: name}}.",
+  "_comment": "Sponsor native ads for the daily email. sub1 / external_id prefix is always nag. {campaign} = issue date, {slot} = top|mid, {banner} = name. Each issue shows two different groups when it can; overrides pin {date: {slot: name}}. slot_groups limits a slot to the listed groups (a trailing * matches a prefix); a slot not listed uses any group.",
   "sponsors": {
     "enabled": true,
     "label": "SPONSORED",
@@ -7,7 +7,38 @@
       "top",
       "mid"
     ],
-    "overrides": {},
+    "slot_groups": {
+      "top": [
+        "gifts",
+        "advent"
+      ],
+      "mid": [
+        "ef-*"
+      ]
+    },
+    "overrides": {
+      "2026-11-17": {
+        "mid": "ef-cozy-2"
+      },
+      "2026-11-18": {
+        "mid": "ef-amplihear"
+      },
+      "2026-11-20": {
+        "mid": "ef-oxipulse"
+      },
+      "2026-11-21": {
+        "mid": "ef-heated-vest"
+      },
+      "2026-11-22": {
+        "mid": "ef-power-scour"
+      },
+      "2026-11-23": {
+        "mid": "ef-revivaflow-1"
+      },
+      "2026-11-24": {
+        "mid": "ef-carvue"
+      }
+    },
     "banners": [
       {
         "name": "gifts-fidget-28",
@@ -107,6 +138,96 @@
         "cta": "Learn More",
         "url": "https://www.g8mv2trk.com/2P9J9R/2Q2DNTG/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
         "group": "advent",
+        "active": true
+      },
+      {
+        "name": "ef-cozy-2",
+        "image": "/img/sponsors/ef-cozy-2.jpg",
+        "headline": "A Plug-In Heater for the One Room That Never Gets Warm",
+        "advertiser": "Cozy Cove",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/T53MTPK/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-cozy-cove",
+        "active": true
+      },
+      {
+        "name": "ef-cozy-3",
+        "image": "/img/sponsors/ef-cozy-3.jpg",
+        "headline": "A Small Heater That Sits on a Shelf and Plugs Into Any Outlet",
+        "advertiser": "Cozy Cove",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/T53MTPK/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-cozy-cove",
+        "active": true
+      },
+      {
+        "name": "ef-amplihear",
+        "image": "/img/sponsors/ef-amplihear.jpg",
+        "headline": "Discreet Rechargeable Hearing Aids, No Hearing Test Required",
+        "advertiser": "Amplihear",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/SJF32FK/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-amplihear",
+        "active": true
+      },
+      {
+        "name": "ef-oxipulse",
+        "image": "/img/sponsors/ef-oxipulse.jpg",
+        "headline": "Check Your Oxygen Level and Heart Rate at Home With One Button",
+        "advertiser": "OxiPulse",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/S6L44PC/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-oxipulse",
+        "active": true
+      },
+      {
+        "name": "ef-heated-vest",
+        "image": "/img/sponsors/ef-heated-vest.jpg",
+        "headline": "A Heated Vest That Stays Warm for Up to 8 Hours",
+        "advertiser": "Solana Gear",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/T552QG6/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-heated-vest",
+        "active": true
+      },
+      {
+        "name": "ef-power-scour",
+        "image": "/img/sponsors/ef-power-scour.jpg",
+        "headline": "A Cordless Power Scrubber That Takes the Elbow Grease Out of Tubs and Tile",
+        "advertiser": "Power Scour",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/SM18ZP5/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-power-scour",
+        "active": true
+      },
+      {
+        "name": "ef-revivaflow-1",
+        "image": "/img/sponsors/ef-revivaflow-1.jpg",
+        "headline": "Sore, Tired Feet? A 20-Minute Heat and Compression Wrap for Home",
+        "advertiser": "RevivaFlow",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/T2QDC52/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-revivaflow",
+        "active": true
+      },
+      {
+        "name": "ef-revivaflow-2",
+        "image": "/img/sponsors/ef-revivaflow-2.jpg",
+        "headline": "A Step-In Foot Wrap With Heat and Compression for Achy Arches",
+        "advertiser": "RevivaFlow",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/T2QDC52/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-revivaflow",
+        "active": true
+      },
+      {
+        "name": "ef-carvue",
+        "image": "/img/sponsors/ef-carvue.jpg",
+        "headline": "A Simple Dash Cam That Keeps a Record of Every Drive",
+        "advertiser": "Car-Vue",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/S9BGP6Q/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-carvue",
         "active": true
       }
     ]

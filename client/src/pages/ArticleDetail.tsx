@@ -26,7 +26,7 @@ function Picks({ products }: { products: Product[] }) {
         <div className="pick" key={p.url + i}>
           <span className="pick__num" aria-hidden="true">{i + 1}</span>
           <div>
-            <span className="pick__maker">{p.maker}</span>
+            <span className="pick__maker">{p.maker}{p.sponsored && <span className="pick__sponsored"> · Sponsored</span>}</span>
             <p className="pick__name">{p.name}</p>
             <p className="pick__blurb">{p.blurb}</p>
             <span className="pick__price">{p.price}</span>

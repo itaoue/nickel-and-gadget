@@ -23,6 +23,9 @@ export interface Product {
   price: string;
   url: string;
   blurb: string;
+  /** A paid placement from content/offers.json; the card is labeled Sponsored. */
+  sponsored?: boolean;
+  offer?: string;
 }
 
 export interface Article {

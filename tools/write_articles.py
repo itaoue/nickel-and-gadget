@@ -36,6 +36,7 @@ import zoneinfo
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ARTICLES = ROOT / "client" / "src" / "content" / "articles"
 SEED = ROOT / "client" / "src" / "content" / "seed-articles.json"
+OFFERS = ROOT / "content" / "offers.json"  # sponsored affiliate offers a guide can be built around
 UPLOADS = ROOT / "client" / "public" / "uploads"
 sys.path.insert(0, str(ROOT / "tools"))
 
@@ -252,12 +253,14 @@ def json_out(msg, what):
     return json.loads(next(b.text for b in msg.content if b.type == "text"))
 
 
-def research(client, category, titles, today, avoid=()):
+def research(client, category, titles, today, avoid=(), topic=None):
     tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 6},
              {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": 10, "max_content_tokens": 8000}]
     recent = "\n".join(f"- {t}" for t in [*titles[-60:], *avoid])
-    ask = (f"Today is {today}. Choose ONE gadget topic in the category {category.upper()} ({SCOPE[category]}) for a Nickel And Gadget "
-           "buying guide, and research it.\n\n"
+    choose = (f"The topic for this Nickel And Gadget buying guide, in the category {category.upper()}, is set: {topic}. Research it."
+              if topic else
+              f"Choose ONE gadget topic in the category {category.upper()} ({SCOPE[category]}) for a Nickel And Gadget buying guide, and research it.")
+    ask = (f"Today is {today}. {choose}\n\n"
            f"{AUDIENCE}\n\n"
            f"It must be clearly different from these articles already on the site:\n{recent}\n\n"
            "Research: find 2 to 4 real products that fit, currently sold in the US by the maker or a major retailer. For each one, FETCH its "
@@ -295,11 +298,11 @@ def topic_of(notes):
     return (m.group(1) if m else notes.splitlines()[0]).strip()[:150]
 
 
-def research_solid(client, category, titles, today, attempts=2):
+def research_solid(client, category, titles, today, attempts=2, topic=None):
     """Research until at least two product pages were actually read; a thin topic is swapped, not written up."""
     avoid = []
     for n in range(attempts):
-        notes, pages = research(client, category, titles, today, avoid)
+        notes, pages = research(client, category, titles, today, avoid, topic)
         print(f"  topic: {topic_of(notes)} (product pages read: {pages})")
         if pages >= 2:
             return notes
@@ -375,6 +378,32 @@ def bare_url(url):
     return re.sub(r"^https?://(www\.)?", "", url.strip().lower()).split("#")[0].split("?")[0].rstrip("/")
 
 
+def load_offers():
+    if not OFFERS.exists():
+        return []
+    return [o for o in json.loads(OFFERS.read_text()).get("offers", []) if o.get("active")]
+
+
+def offer_due(today, forced=None):
+    """The sponsored offer to build a guide around: the one named with --offer, else one dated today that no guide carries yet."""
+    offers = load_offers()
+    if forced:
+        hit = [o for o in offers if o["key"] == forced]
+        if not hit:
+            raise SystemExit(f"no active offer named {forced!r} in {OFFERS.name}")
+        return hit[0]
+    used = {p.get("offer") for a in load_pipeline() for p in a.get("products", [])}
+    return next((o for o in offers if o.get("date") == today.isoformat() and o["key"] not in used), None)
+
+
+def add_offer(art, offer, slug):
+    """Append the offer as the last pick card, marked sponsored. Its name, blurb and link come from offers.json, never from the model."""
+    art["products"] = [p for p in art["products"] if not p.get("sponsored")][:3] + [{
+        "name": offer["name"], "maker": offer["maker"], "price": offer.get("price") or "Check current price",
+        "url": offer["url"].replace("{slug}", slug), "blurb": offer["blurb"], "sponsored": True, "offer": offer["key"]}]
+    return art
+
+
 def check_products(art, notes):
     """Drop products whose URL is not in the notes (the model must not make up links); the guide needs at least two left."""
     seen = {bare_url(u) for u in re.findall(r"https?://[^\s)\]>\"',]+", notes)}
@@ -443,7 +472,8 @@ def save(art, category, slug, image, now):
         "date": f"{now:%B} {now.day}, {now:%Y}", "publishedAt": now.astimezone(dt.timezone.utc).isoformat(timespec="seconds"),
         "readTime": f"{max(3, round(words / 220))} min read", "image": image,
         "tags": [t.strip() for t in art["tags"] if t.strip()][:5], "sections": sections,
-        "products": [{k: p[k].strip() for k in ("name", "maker", "price", "url", "blurb")} for p in art["products"]][:4],
+        "products": [{**{k: p[k].strip() for k in ("name", "maker", "price", "url", "blurb")},
+                      **({"sponsored": True, "offer": p["offer"]} if p.get("sponsored") else {})} for p in art["products"]][:4],
         "sources": [s for s in art["sources"] if s.get("url", "").startswith("http") and not re.search(r"pending|unverified", s.get("label", ""), re.I)][:6],
         "relatedIds": [],
     }
@@ -457,6 +487,7 @@ def main():
     ap.add_argument("--count", type=int, default=3)
     ap.add_argument("--daily", type=int, help="top today's (Pacific) batch up to this many; overrides --count")
     ap.add_argument("--category", choices=CATEGORIES)
+    ap.add_argument("--offer", help="write one guide around this offer key from content/offers.json (dated offers run by themselves with --daily)")
     ap.add_argument("--no-image", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
@@ -469,7 +500,13 @@ def main():
         print(f"{done} article(s) already written today (Pacific); {count} to go")
     if count == 0:
         return
+    offer = offer_due(dt.datetime.now(TZ).date(), a.offer) if (a.offer or a.daily is not None) else None
+    if a.offer:
+        count = 1
     cats = pick_categories(count, rows, a.category)
+    if offer:  # the first guide of the batch is the offer's topic, in the offer's category
+        cats[0] = offer["category"]
+        print(f"sponsored offer: {offer['key']}")
     print("categories:", ", ".join(cats))
     if a.dry_run:
         return
@@ -480,14 +517,14 @@ def main():
     taken = {r[1] for r in rows}
     written, failed = [], 0
     spare = [c for c in pick_categories(len(CATEGORIES), rows) if c not in cats]  # tried when a category fails
-    queue = list(cats)
+    queue = [(c, offer if i == 0 else None) for i, c in enumerate(cats)]
     while queue:
-        cat = queue.pop(0)
+        cat, off = queue.pop(0)
         now = dt.datetime.now(TZ)
         today = f"{now:%B} {now.day}, {now:%Y}"
         print(f"\n== {cat}")
         try:
-            notes = research_solid(client, cat, titles, today)
+            notes = research_solid(client, cat, titles, today, topic=off["topic"] if off else None)
             art = write(client, cat, notes, today)
             art["category"] = cat
             check_products(art, notes)
@@ -501,6 +538,8 @@ def main():
             if verdict["verdict"] == "revise":
                 art = check_products(revise(client, art, verdict, notes), notes)
             slug = unique_slug(art["slug"], taken)
+            if off:
+                add_offer(art, off, slug)
             image = cover_image(art, slug, now, a.no_image)
             rec = save(art, cat, slug, image, now)
             titles.append(rec["title"])
@@ -513,9 +552,12 @@ def main():
             print(f"  FAILED: {exc.__class__.__name__}: {str(exc)[:300]}")
             if os.environ.get("GITHUB_ACTIONS"):  # an annotation shows on the run page without signing in to read the log
                 print(f"::warning title={cat} guide failed::{exc.__class__.__name__}: {str(exc)[:300]}")
-            if spare and failed <= count + 2:
-                queue.append(spare.pop(0))
-                print(f"  trying {queue[-1]} instead")
+            if off and failed <= 2:  # an offer's guide is retried on the same topic, not swapped for another category
+                queue.append((cat, off))
+                print(f"  retrying the {off['key']} guide")
+            elif spare and failed <= count + 2:
+                queue.append((spare.pop(0), None))
+                print(f"  trying {queue[-1][0]} instead")
     print(f"\ndone: {len(written)} written, {failed} failed; {USAGE['calls']} API calls, estimated cost ${USAGE['cost']:.2f}")
     if not written and failed:
         sys.exit(1)

@@ -101,7 +101,10 @@ def pick_sponsors(date):
         if pinned.get(slot) in by_name:
             out[slot] = by_name[pinned[slot]]
         else:
-            free = [g for g in groups if g not in used] or groups
+            want = sp.get("slot_groups", {}).get(slot)  # e.g. ["gifts", "ef-*"]; a slot not listed takes any group
+            allowed = [g for g in groups if any(g == w or (w.endswith("*") and g.startswith(w[:-1])) for w in want)] if want else groups
+            allowed = allowed or groups
+            free = [g for g in allowed if g not in used] or allowed
             if not free:
                 break
             group = free[(day + i) % len(free)]
