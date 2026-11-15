@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-16",
+  "subject": "Did you close the garage door? Check from your phone",
+  "preheader": "A small add-on works with the opener you already own, but your garage Wi-Fi matters",
+  "featured": {
+    "slug": "smart-garage-door-control-check-from-phone",
+    "teaser": "Check and close the garage from your phone"
+  },
+  "recent": [
+    {
+      "slug": "handheld-video-magnifiers-for-small-print-at-home",
+      "teaser": "What to check before buying a handheld magnifier"
+    },
+    {
+      "slug": "bluetooth-item-finders-keys-wallets-gift-guide",
+      "teaser": "Two item finders near $30 and the phone each needs"
+    },
+    {
+      "slug": "bed-rails-bedside-handles-getting-out-of-bed",
+      "teaser": "What a bed rail can't do, and how to check the fit"
+    },
+    {
+      "slug": "wall-mount-hose-reels-lightweight-hoses-easier-watering",
+      "teaser": "A tidier hose, and what a reel won't fix"
+    }
+  ],
+  "poll": {
+    "question": "How do you check that your garage door is closed?",
+    "options": [
+      "Look before I leave",
+      "Turn around and go back",
+      "Use a phone app",
+      "Not sure it's ever closed"
+    ]
+  }
+}

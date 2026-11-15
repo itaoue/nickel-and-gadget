@@ -1,0 +1,11 @@
+{
+ "campaign": "2026-11-16",
+ "question": "How do you check that your garage door is closed?",
+ "options": [
+  "Look before I leave",
+  "Turn around and go back",
+  "Use a phone app",
+  "Not sure it's ever closed"
+ ],
+ "lead": "smart-garage-door-control-check-from-phone"
+}
