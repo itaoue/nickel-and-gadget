@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-18",
+  "subject": "Did you take your pills? One-time price vs. monthly fee",
+  "preheader": "Talking pillboxes, locked dispensers and what each one asks of your hands",
+  "featured": {
+    "slug": "pill-reminders-locked-dispensers-cost-guide",
+    "teaser": "Pill reminders: pay once or pay every month"
+  },
+  "recent": [
+    {
+      "slug": "voice-only-smart-speakers-reminders-timers-compared",
+      "teaser": "The no-screen speaker that sets timers while hands are wet"
+    },
+    {
+      "slug": "budget-rechargeable-otc-hearing-aids-price-comparison",
+      "teaser": "Three low-cost hearing aid pairs and what to check first"
+    },
+    {
+      "slug": "handheld-video-magnifiers-for-small-print-at-home",
+      "teaser": "A pocket camera that makes small print easier to read"
+    },
+    {
+      "slug": "bluetooth-item-finders-keys-wallets-gift-guide",
+      "teaser": "Two $30 tags for keys, and the phone match that matters"
+    }
+  ],
+  "poll": {
+    "question": "How do you remember to take your pills each day?",
+    "options": [
+      "Plain weekly pillbox",
+      "Phone or device alarm",
+      "Family helps remind me",
+      "Just my memory"
+    ]
+  }
+}
