@@ -96,11 +96,10 @@ def pick_sponsors(date):
     pinned = sp.get("overrides", {}).get(date, {})
     day = dt.date.fromisoformat(date).toordinal()
     groups = sorted({b["group"] for b in active})
-    out, used = {}, set()
+    out = {slot: by_name[pinned[slot]] for slot in sp["slots"] if pinned.get(slot) in by_name}
+    used = {b["group"] for b in out.values()}  # pinned slots first, so a rotated slot never repeats a pinned advertiser
     for i, slot in enumerate(sp["slots"]):
-        if pinned.get(slot) in by_name:
-            out[slot] = by_name[pinned[slot]]
-        else:
+        if slot not in out:
             want = sp.get("slot_groups", {}).get(slot)  # e.g. ["gifts", "ef-*"]; a slot not listed takes any group
             allowed = [g for g in groups if any(g == w or (w.endswith("*") and g.startswith(w[:-1])) for w in want)] if want else groups
             allowed = allowed or groups

@@ -9,8 +9,7 @@
     ],
     "slot_groups": {
       "top": [
-        "gifts",
-        "advent"
+        "ef-*"
       ],
       "mid": [
         "ef-*"
@@ -22,6 +21,9 @@
       },
       "2026-11-18": {
         "mid": "ef-amplihear"
+      },
+      "2026-11-19": {
+        "mid": "ef-roadboost"
       },
       "2026-11-20": {
         "mid": "ef-oxipulse"
@@ -228,6 +230,106 @@
         "cta": "Learn More",
         "url": "https://www.ayvcb7trk.com/5P6NRK1/S9BGP6Q/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
         "group": "ef-carvue",
+        "active": true
+      },
+      {
+        "name": "ef-heated-gloves",
+        "image": "/img/sponsors/ef-heated-gloves.jpg",
+        "headline": "Battery-Heated Gloves for Hands That Never Seem to Warm Up",
+        "advertiser": "Solana Gear",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/SKLD845/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-heated-gloves",
+        "active": true
+      },
+      {
+        "name": "ef-heatme",
+        "image": "/img/sponsors/ef-heatme.jpg",
+        "headline": "A Small Plug-In Wall Heater for a Chilly Bathroom or Desk Nook",
+        "advertiser": "HeatMe Pro",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/SF9KD3B/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-heatme",
+        "active": true
+      },
+      {
+        "name": "ef-drone",
+        "image": "/img/sponsors/ef-drone.jpg",
+        "headline": "A Foldable 4K Camera Drone That Makes a Standout Gift",
+        "advertiser": "Stealthbird",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/SJGFX66/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-drone",
+        "active": true
+      },
+      {
+        "name": "ef-boxhound",
+        "image": "/img/sponsors/ef-boxhound.jpg",
+        "headline": "An Electric Cutter That Flattens Delivery Boxes Without the Wrestling",
+        "advertiser": "Boxhound",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/T4ZW48C/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-boxhound",
+        "active": true
+      },
+      {
+        "name": "ef-titan-board",
+        "image": "/img/sponsors/ef-titan-board.jpg",
+        "headline": "A Titanium Cutting Board Built to Outlast the Plastic Ones",
+        "advertiser": "Titan Cut Pro",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/SJ8WD7Q/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-titan-board",
+        "active": true
+      },
+      {
+        "name": "ef-solar-boost",
+        "image": "/img/sponsors/ef-solar-boost.jpg",
+        "headline": "A Solar Power Bank That Keeps Your Phone Charged Away From an Outlet",
+        "advertiser": "Solar Boost",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/SJK7NMD/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-solar-boost",
+        "active": true
+      },
+      {
+        "name": "ef-power-shears",
+        "image": "/img/sponsors/ef-power-shears.jpg",
+        "headline": "Cordless Pruning Shears That Do the Squeezing for Sore Hands",
+        "advertiser": "Wood Ranger",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/RRRCJ91/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-power-shears",
+        "active": true
+      },
+      {
+        "name": "ef-back-restore",
+        "image": "/img/sponsors/ef-back-restore.jpg",
+        "headline": "A Heated Back Stretcher You Lie On for 15 Minutes a Day",
+        "advertiser": "Back Restore",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/T2T64L8/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-back-restore",
+        "active": true
+      },
+      {
+        "name": "ef-ryoko",
+        "image": "/img/sponsors/ef-ryoko.jpg",
+        "headline": "A Pocket Wi-Fi Hotspot for Travel, With No Contract",
+        "advertiser": "Ryoko",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/S97NXPJ/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-ryoko",
+        "active": true
+      },
+      {
+        "name": "ef-roadboost",
+        "image": "/img/sponsors/ef-roadboost.jpg",
+        "headline": "One Compact Kit That Jump-Starts a Car and Inflates a Low Tire",
+        "advertiser": "RoadBoost",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/T528ZZZ/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-roadboost",
         "active": true
       }
     ]
