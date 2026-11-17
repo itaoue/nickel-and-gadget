@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-17",
+  "subject": "Your towel bar isn't meant to hold your weight",
+  "preheader": "What a grab bar must be anchored into, and why suction-cup bars are a different thing",
+  "featured": {
+    "slug": "screw-in-grab-bars-shower-tub-toilet",
+    "teaser": "Why screw-in grab bars beat suction cups"
+  },
+  "recent": [
+    {
+      "slug": "tablet-stands-clamp-arms-video-calls-bedside",
+      "teaser": "Stop showing family your ceiling on video calls"
+    },
+    {
+      "slug": "small-space-heaters-for-one-chilly-room",
+      "teaser": "The two shut-offs to look for in a space heater"
+    },
+    {
+      "slug": "smart-wall-switches-dimmers-lights-by-voice",
+      "teaser": "Turn on the light by voice, phone or small remote"
+    },
+    {
+      "slug": "phone-wrist-straps-crossbody-cases-drop-proof",
+      "teaser": "A low-cost way to stop dropping your phone"
+    }
+  ],
+  "poll": {
+    "question": "What do you grab for when stepping out of the tub or shower?",
+    "options": [
+      "A installed grab bar",
+      "Towel bar or sink",
+      "Suction-cup handle",
+      "Nothing, I manage fine"
+    ]
+  }
+}
