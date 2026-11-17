@@ -17,6 +17,7 @@
     },
     "overrides": {
       "2026-11-17": {
+        "top": "ef-back-restore",
         "mid": "ef-cozy-2"
       },
       "2026-11-18": {
@@ -330,6 +331,16 @@
         "cta": "Learn More",
         "url": "https://www.ayvcb7trk.com/5P6NRK1/T528ZZZ/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
         "group": "ef-roadboost",
+        "active": true
+      },
+      {
+        "name": "ef-resqvac",
+        "image": "/img/sponsors/ef-resqvac.jpg",
+        "headline": "An Anti-Choking Suction Device to Keep in the Kitchen Drawer",
+        "advertiser": "ResQVac",
+        "cta": "Learn More",
+        "url": "https://www.ayvcb7trk.com/5P6NRK1/SFFQ295/?sub1=nag&sub2={campaign}&sub3={slot}&sub4={banner}",
+        "group": "ef-resqvac",
         "active": true
       }
     ]
