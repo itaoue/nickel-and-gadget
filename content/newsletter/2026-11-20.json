@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-20",
+  "subject": "The camera price tag that doesn't tell the whole story",
+  "preheader": "Some cameras need a monthly plan before they'll save any video at all",
+  "featured": {
+    "slug": "outdoor-battery-security-cameras-without-monthly-fee",
+    "teaser": "How to spot the hidden plan on a porch camera"
+  },
+  "recent": [
+    {
+      "slug": "fingertip-pulse-oximeters-home-reading-guide",
+      "teaser": "What a fingertip oxygen number can and can't tell you"
+    },
+    {
+      "slug": "amplified-phones-vs-captioned-phones-hearing-loss",
+      "teaser": "Louder calls or words on a screen: which fits you"
+    },
+    {
+      "slug": "pill-reminders-locked-dispensers-cost-guide",
+      "teaser": "Pill dispensers: one-time price or monthly fee"
+    },
+    {
+      "slug": "voice-only-smart-speakers-reminders-timers-compared",
+      "teaser": "Three screenless speakers and what they quietly cost"
+    }
+  ],
+  "poll": {
+    "question": "How do you check on what's happening outside your home?",
+    "options": [
+      "Outdoor camera",
+      "Video doorbell",
+      "Just look outside",
+      "Not sure what I'd use"
+    ]
+  }
+}
