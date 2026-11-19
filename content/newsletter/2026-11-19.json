@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-19",
+  "subject": "Why your bathroom grab bar may not hold when you need it",
+  "preheader": "The wall behind the bar matters more than the bar itself, and suction cups are a different story.",
+  "featured": {
+    "slug": "screw-in-grab-bars-shower-tub-toilet",
+    "teaser": "Why screw-in grab bars beat suction cups"
+  },
+  "recent": [
+    {
+      "slug": "electric-kettles-auto-shut-off-safer-picks",
+      "teaser": "What an auto shut-off kettle can't protect you from"
+    },
+    {
+      "slug": "winter-car-jump-starters-tire-inflators-guide",
+      "teaser": "Why a cold morning halves your car battery's power"
+    },
+    {
+      "slug": "big-button-corded-phones-kitchen-bedside",
+      "teaser": "The kitchen phone with one-touch calls and louder voices"
+    },
+    {
+      "slug": "tablet-stands-clamp-arms-video-calls-bedside",
+      "teaser": "A hands-free way to video call without the wobble"
+    }
+  ],
+  "poll": {
+    "question": "What do you hold onto when stepping into your shower or tub?",
+    "options": [
+      "A proper grab bar",
+      "Towel bar or sink",
+      "Suction-cup handle",
+      "Nothing, I don't need support"
+    ]
+  }
+}
