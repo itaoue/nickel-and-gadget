@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-21",
+  "subject": "Missing calls? Some home phones add up to 55 dB",
+  "preheader": "Louder voices, flashing ringers and big buttons that are easier to press",
+  "featured": {
+    "slug": "amplified-home-phones-loud-ringers-big-buttons",
+    "teaser": "Home phones that make grandchildren easier to hear"
+  },
+  "recent": [
+    {
+      "slug": "heated-vest-gift-battery-care-guide",
+      "teaser": "Why a heated vest gift depends on its battery"
+    },
+    {
+      "slug": "cordless-spin-scrubbers-for-stiff-hands",
+      "teaser": "What to check before buying a scrubber for stiff hands"
+    },
+    {
+      "slug": "electric-kettles-auto-shut-off-safer-picks",
+      "teaser": "What an auto shut-off kettle can and can't do"
+    },
+    {
+      "slug": "winter-car-jump-starters-tire-inflators-guide",
+      "teaser": "Why a cold morning can leave your car battery at half power"
+    }
+  ],
+  "poll": {
+    "question": "What's your biggest challenge with your home phone?",
+    "options": [
+      "Ringer is too quiet",
+      "Hard to hear callers",
+      "Small buttons",
+      "No problems with it"
+    ]
+  }
+}
