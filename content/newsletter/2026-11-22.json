@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-22",
+  "subject": "Never miss a knock at the door again, even with the TV on",
+  "preheader": "Some kits plug in with no wiring and may work with the doorbell you already have",
+  "featured": {
+    "slug": "flashing-vibrating-doorbell-alerts-hearing-loss",
+    "teaser": "Doorbell alerts you can see and feel"
+  },
+  "recent": [
+    {
+      "slug": "cordless-spin-scrubbers-tubs-tile-sore-wrists",
+      "teaser": "A spinning brush that eases tub scrubbing strain"
+    },
+    {
+      "slug": "bed-assist-handles-fit-and-safety-guide",
+      "teaser": "The gap risk to understand before buying a bed handle"
+    },
+    {
+      "slug": "fingertip-pulse-oximeters-home-reading-guide",
+      "teaser": "Why a 90% oximeter reading may not mean 90%"
+    },
+    {
+      "slug": "outdoor-battery-security-cameras-without-monthly-fee",
+      "teaser": "How to spot the hidden plan on a battery camera"
+    }
+  ],
+  "poll": {
+    "question": "How do you notice when someone is at your door?",
+    "options": [
+      "I hear the chime",
+      "I see a light or phone alert",
+      "Someone else tells me",
+      "I often miss it"
+    ]
+  }
+}
