@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-23",
+  "subject": "Make your iPhone simpler without buying a new phone",
+  "preheader": "A free setting swaps tiny icons for big buttons and just the apps you choose.",
+  "featured": {
+    "slug": "assistive-access-iphone-simpler-phone-guide",
+    "teaser": "The free iPhone mode with big buttons and fewer apps"
+  },
+  "recent": [
+    {
+      "slug": "large-display-day-clocks-plain-words",
+      "teaser": "A clock that spells out the day in plain words"
+    },
+    {
+      "slug": "foot-massagers-with-heat-buying-guide",
+      "teaser": "Foot massagers: who should ask a doctor first"
+    },
+    {
+      "slug": "amplified-home-phones-loud-ringers-big-buttons",
+      "teaser": "Home phones that make callers up to 55 dB louder"
+    },
+    {
+      "slug": "heated-vest-gift-battery-care-guide",
+      "teaser": "Before gifting a heated vest, plan for the battery"
+    }
+  ],
+  "poll": {
+    "question": "How easy is your iPhone, or a loved one's, to use day to day?",
+    "options": [
+      "Very easy",
+      "Sometimes confusing",
+      "Often frustrating",
+      "Don't use an iPhone"
+    ]
+  }
+}
