@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-24",
+  "subject": "How family can send photos to a frame on your shelf",
+  "preheader": "One frame has no subscription fees. The other has a catch worth knowing about.",
+  "featured": {
+    "slug": "wifi-photo-frames-family-can-send-pictures",
+    "teaser": "Two photo frames family can send pictures to"
+  },
+  "recent": [
+    {
+      "slug": "simple-dash-cams-for-everyday-drivers",
+      "teaser": "What a dash cam records, and what it can't do"
+    },
+    {
+      "slug": "coffee-makers-automatic-shut-off-simple-controls",
+      "teaser": "What a coffee maker's shut-off timer won't cover"
+    },
+    {
+      "slug": "cordless-spin-scrubbers-tubs-tile-sore-wrists",
+      "teaser": "A spinning brush that eases tub scrubbing strain"
+    },
+    {
+      "slug": "bed-assist-handles-fit-and-safety-guide",
+      "teaser": "The gap hazard to know before buying a bed handle"
+    }
+  ],
+  "poll": {
+    "question": "How do you see the newest family photos today?",
+    "options": [
+      "Group texts on my phone",
+      "Printed copies in the mail",
+      "Email or social media",
+      "I miss most of them"
+    ]
+  }
+}
