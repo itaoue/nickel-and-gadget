@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-25",
+  "subject": "Check on Mom or Dad without putting a camera in the house",
+  "preheader": "A two-piece stick-on sensor shows when a door opens, and one thing to check before you buy.",
+  "featured": {
+    "slug": "door-window-sensors-check-on-parent-alone",
+    "teaser": "The stick-on sensor that checks in without a camera"
+  },
+  "recent": [
+    {
+      "slug": "cordless-electric-kettles-auto-shut-off-guide",
+      "teaser": "What a cordless kettle's auto shut-off does and doesn't do"
+    },
+    {
+      "slug": "captioned-phones-vs-amplified-phones-hearing-loss",
+      "teaser": "Louder voices or words on a screen for phone calls"
+    },
+    {
+      "slug": "assistive-access-iphone-simpler-phone-guide",
+      "teaser": "The free iPhone mode that trims it to big buttons"
+    },
+    {
+      "slug": "large-display-day-clocks-plain-words",
+      "teaser": "A clock that spells out the day in big plain words"
+    }
+  ],
+  "poll": {
+    "question": "How would you feel about a door sensor alerting family if your door opens?",
+    "options": [
+      "Fine with it",
+      "Only if I choose who's told",
+      "I'd rather not",
+      "Not sure"
+    ]
+  }
+}
