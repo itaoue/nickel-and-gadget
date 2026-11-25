@@ -1,0 +1,153 @@
+{
+  "id": "p-door-window-sensors-check-on-parent-alone",
+  "slug": "door-window-sensors-check-on-parent-alone",
+  "category": "Smart Home",
+  "title": "Door and Window Sensors: A Camera-Free Way to Check In on a Parent",
+  "subtitle": "Small stick-on sensors can tell you when a door opens at home, giving you one limited piece of information without a camera in the house.",
+  "excerpt": "A door sensor can alert your phone when a door opens or closes, with no camera involved. Sensor prices on the pages below run from about $17 to $30, though some setups may need extra gear.",
+  "author": "Nickel And Gadget Editors",
+  "authorRole": "Editorial desk",
+  "date": "November 24, 2026",
+  "publishedAt": "2026-11-25T01:02:25+00:00",
+  "readTime": "4 min read",
+  "image": "/uploads/2026/11/door-window-sensors-check-on-parent-alone.jpg",
+  "tags": [
+    "Smart Home",
+    "Caregiving",
+    "Aging in Place",
+    "Home Sensors",
+    "Privacy"
+  ],
+  "sections": [
+    {
+      "type": "paragraph",
+      "content": "If your mom or dad lives alone, you probably know the small worry that comes with a quiet day. Did they get up? Did they leave the front door open again? A daily phone call helps, but you can't call every hour, and many parents would refuse an indoor camera."
+    },
+    {
+      "type": "paragraph",
+      "content": "A door and window sensor is a simpler option. It is a small two-piece gadget that reports when a door opens or closes. It has no camera. AARP, in its piece on devices to help loved ones age in place, calls gadgets like these activity sensors and says you don't need a full smart home to get these benefits."
+    },
+    {
+      "type": "heading",
+      "content": "How a door sensor works"
+    },
+    {
+      "type": "paragraph",
+      "content": "Each sensor has two parts: the sensor itself and a small magnet. You stick one on the door and the other on the frame beside it, lined up with a small gap between them. When the door opens, the magnet moves away and the sensor notices. Getting that news to your phone while you are away may need extra equipment, such as a hub (a small box that links sensors to your home network). Check this before you buy."
+    },
+    {
+      "type": "paragraph",
+      "content": "For checking on a parent, the pattern matters more than any single alert. Agespace, a UK charity, said in material from around 2021 that door sensors can show when a door was last used and how long it stayed open. They can also alert family if a front door is left open or someone is out too long."
+    },
+    {
+      "type": "paragraph",
+      "content": "In an AARP article on smarter homes, Andy Miller of AARP Innovation Labs is quoted using the words \"when something seems off.\" AARP also describes caregivers getting alerts when routines look unusual. A sensor is one small clue, not a full picture."
+    },
+    {
+      "type": "subheading",
+      "content": "What a sensor cannot tell you"
+    },
+    {
+      "type": "paragraph",
+      "content": "A contact sensor reports one thing: open or closed. It cannot tell you who came through the door, whether your parent feels well, or whether they have fallen. A quiet morning could mean they are fine and sleeping in, or that they have not been able to get up."
+    },
+    {
+      "type": "paragraph",
+      "content": "These sensors are not medical devices or emergency systems. If falls or other health concerns worry you, talk with your parent's doctor about what is appropriate, including a medical alert pendant, rather than relying on a sensor. In an emergency, call 911. Some families still prefer sensors for what they leave out. In an AP report, one couple chose sensors over a webcam because they offered \"a more limited set of information.\""
+    },
+    {
+      "type": "heading",
+      "content": "What to look for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Hub or bridge: To get alerts while you are away, some sensors may need an extra box called a hub. The product pages don't all spell out what is needed, so confirm it with the seller and add any hub to your budget.",
+        "Fees: None of the three product pages below shows a subscription. Still, check whether any hub or app you add charges a monthly fee.",
+        "Your existing system: If your parent already uses a smart speaker or phone system, see whether the sensor works with it. Among these three, compatibility is stated only on the Aqara pages: the standard sensor lists Apple HomeKit, Alexa and Google Home, and the P2 lists Matter. The SwitchBot page does not say, so ask the seller.",
+        "Batteries: Battery type and battery life are not listed in the product details we have, so check the box for the battery type.",
+        "Fit: The two pieces must line up closely. Look at the door and frame first, especially on older or uneven doors.",
+        "Returns: Buy from a seller with a clear return policy in case the sensor does not suit the door or your setup.",
+        "Setup help: Decide who will install it and whose phone will receive the alerts before you order."
+      ]
+    },
+    {
+      "type": "products"
+    },
+    {
+      "type": "heading",
+      "content": "Setting it up and using it well"
+    },
+    {
+      "type": "paragraph",
+      "content": "Start with a conversation, not a gadget. There is no camera, but your parent may still feel watched. Experts quoted in the AP report advise a frank talk about privacy and need before installing anything. Get their consent first."
+    },
+    {
+      "type": "paragraph",
+      "content": "Begin small. One sensor on the front door is a simple place to start. Peel the backing, line up the two pieces, and open and close the door a few times to confirm your phone gets the alert. A sensor on a fridge or medicine cabinet shows only that the door opened, not what was taken."
+    },
+    {
+      "type": "paragraph",
+      "content": "Then agree on what an alert, or a missing one, means. As a made-up example, you might agree that if the front door hasn't opened by a certain hour, you give a call. Decide which family member checks the app. A sensor only helps if someone is paying attention to it."
+    },
+    {
+      "type": "callout",
+      "content": "Before you buy, confirm whether the sensor needs a hub, a bridge or other gear to send alerts to your phone when you are away from your parent's home. Any hub adds to the cost.",
+      "label": "Before You Buy"
+    },
+    {
+      "type": "paragraph",
+      "content": "A door sensor won't replace a phone call or a visit, and it isn't meant to. Used with your parent's blessing, it can give you one more small piece of information on the days you can't be there."
+    }
+  ],
+  "products": [
+    {
+      "name": "SwitchBot Contact Sensor",
+      "maker": "SwitchBot",
+      "price": "$16.99 for one; $33.98 for a 2-pack (list price, November 2026)",
+      "url": "https://www.switch-bot.com/products/contact-sensor",
+      "blurb": "Suits families watching one door or a few, sold in 1-, 2- and 4-packs. Its built-in light sensor can trigger a SwitchBot Bot to turn on a light in the dark; the page doesn't say whether a hub is needed, so check."
+    },
+    {
+      "name": "Aqara Door and Window Sensor",
+      "maker": "Aqara",
+      "price": "$17.99 (list price, November 2026)",
+      "url": "https://us.aqara.com/products/door-and-window-sensor",
+      "blurb": "Suits families using Apple HomeKit, Alexa or Google Home, which the page lists as compatible. It offers real-time alerts and automations; confirm hub needs with the seller."
+    },
+    {
+      "name": "Aqara Door and Window Sensor P2",
+      "maker": "Aqara",
+      "price": "$29.99 (list price, November 2026)",
+      "url": "https://us.aqara.com/products/door-and-window-sensor-p2",
+      "blurb": "Suits homes set up around Matter, which the page lists as supported. Aqara lists real-time alerts, long battery life and easy installation; check what other hardware your setup needs."
+    }
+  ],
+  "sources": [
+    {
+      "label": "SwitchBot: Contact Sensor product page",
+      "url": "https://www.switch-bot.com/products/contact-sensor"
+    },
+    {
+      "label": "Aqara: Door and Window Sensor product page",
+      "url": "https://us.aqara.com/products/door-and-window-sensor"
+    },
+    {
+      "label": "Aqara: Door and Window Sensor P2 product page",
+      "url": "https://us.aqara.com/products/door-and-window-sensor-p2"
+    },
+    {
+      "label": "AARP: How a Smarter Home Can Make Daily Life Easier",
+      "url": "https://www.aarp.org/personal-technology/smart-home-daily-life-easier/"
+    },
+    {
+      "label": "Agespace: Home Monitoring Sensors for the Elderly",
+      "url": "https://www.agespace.org/tech/elderly-home-sensors"
+    },
+    {
+      "label": "AP via Fox News: High-tech sensors help kids keep eye on aging parents",
+      "url": "https://www.foxnews.com/health/high-tech-sensors-help-kids-keep-eye-on-aging-parents"
+    }
+  ],
+  "relatedIds": []
+}
