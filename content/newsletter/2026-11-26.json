@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-26",
+  "subject": "The frame that lets family send photos to your shelf",
+  "preheader": "One brand has no subscription fees. The other has a free tier with limits.",
+  "featured": {
+    "slug": "wifi-photo-frames-family-can-send-pictures",
+    "teaser": "How family can send photos to a frame on your shelf"
+  },
+  "recent": [
+    {
+      "slug": "simple-dash-cams-for-everyday-drivers",
+      "teaser": "What a dash cam records, and what it can't do"
+    },
+    {
+      "slug": "coffee-makers-automatic-shut-off-simple-controls",
+      "teaser": "What a coffee maker's shut-off timer can't do"
+    },
+    {
+      "slug": "foot-massagers-with-heat-buying-guide",
+      "teaser": "Who should ask a doctor before using foot massager heat"
+    },
+    {
+      "slug": "cordless-spin-scrubbers-tubs-tile-sore-wrists",
+      "teaser": "A long-handled brush that spins so your wrists don't have to"
+    }
+  ],
+  "poll": {
+    "question": "How do you see the grandkids' newest photos today?",
+    "options": [
+      "Printed copies in the mail",
+      "On my phone or tablet",
+      "On a digital photo frame",
+      "I rarely see them"
+    ]
+  }
+}
