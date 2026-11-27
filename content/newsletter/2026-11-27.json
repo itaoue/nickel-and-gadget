@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-27",
+  "subject": "The $10 bathroom fix the CDC checklist suggests for you",
+  "preheader": "Why suction cups only work on certain tub floors, and what to use when they can't",
+  "featured": {
+    "slug": "non-slip-bath-shower-mats-how-to-pick",
+    "teaser": "How to pick a bath mat that actually grips"
+  },
+  "recent": [
+    {
+      "slug": "cordless-spin-scrubbers-for-tubs-and-tile",
+      "teaser": "Scrubbing the tub without kneeling on hard tile"
+    },
+    {
+      "slug": "kobo-clara-e-reader-large-text-guide",
+      "teaser": "An e-reader that lets you pick how big the words are"
+    },
+    {
+      "slug": "bluetooth-key-finders-which-tracker-to-buy",
+      "teaser": "Key finders: which fits which phone, and what they miss"
+    },
+    {
+      "slug": "door-window-sensors-alerts-without-camera",
+      "teaser": "Door alerts for a parent, with no camera in the house"
+    }
+  ],
+  "poll": {
+    "question": "What do you have on the floor of your tub or shower?",
+    "options": [
+      "A suction-cup mat",
+      "Self-stick strips",
+      "Nothing right now",
+      "Not sure"
+    ]
+  }
+}
