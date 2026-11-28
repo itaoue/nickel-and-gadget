@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-28",
+  "subject": "Check on Mom or Dad without putting a camera in the house",
+  "preheader": "Small stick-on sensors show when a door opens, but there is one catch to check before you buy.",
+  "featured": {
+    "slug": "door-window-sensors-check-on-parent-alone",
+    "teaser": "A camera-free way to know a door was opened"
+  },
+  "recent": [
+    {
+      "slug": "airtag-vs-tile-mate-key-finders-for-parents",
+      "teaser": "The key finder that only works with certain iPhones"
+    },
+    {
+      "slug": "ipad-video-calls-big-text-simple-setup",
+      "teaser": "Why an iPad video call can leave Android family out"
+    },
+    {
+      "slug": "jitterbug-flip3-smart5-lively-plan-costs",
+      "teaser": "What the monthly bill adds to a simple Jitterbug phone"
+    },
+    {
+      "slug": "cordless-electric-kettles-auto-shut-off-guide",
+      "teaser": "What a kettle's auto shut-off does and doesn't cover"
+    }
+  ],
+  "poll": {
+    "question": "How would you feel about a door sensor that alerts family, with no camera?",
+    "options": [
+      "I'd welcome it",
+      "Only if I chose it",
+      "I'd rather not",
+      "Not sure"
+    ]
+  }
+}
